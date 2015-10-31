@@ -27,12 +27,19 @@ noremap <C-P> :Unite file_mru<CR>
 """"""""""""""""""""""""""""""""""
 
 NeoBundle 'scrooloose/nerdtree'
+noremap <silent><C-e> :NERDTree<Cr>
 
 " 一括コメントのON/OFF
 NeoBundle 'tomtom/tcomment_vim'
 
 " ログの内容を色付け
 NeoBundle 'vim-scripts/AnsiEsc.vim'
+
+"シンタックスチェック"
+NeoBundle 'scrooloose/syntastic'
+
+"複数カーソル"
+NeoBundle 'terryma/vim-multiple-cursors'
 
 call neobundle#end()
 
@@ -57,3 +64,8 @@ set showmatch "対応する括弧を表示
 set ignorecase "大文字/小文字を区別しない
 set smartcase "検索文字列に大文字が含まれている場合は区別する
 
+"####その他####
+set clipboard=unnamed,autoselect
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
