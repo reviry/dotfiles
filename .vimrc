@@ -42,7 +42,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'terryma/vim-multiple-cursors'
 
 "カラースキーム"
-NeoBundle 'nanotech/jellybeans.vim' 
+NeoBundle 'nanotech/jellybeans.vim'
 
 "emmet"
 NeoBundle 'mattn/emmet-vim'
@@ -63,8 +63,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 "行末の半角スペースを可視化
 NeoBundle 'bronson/vim-trailing-whitespace'
 
-
-
 call neobundle#end()
 
 " Required:
@@ -84,6 +82,8 @@ set autoindent "改行時に前の行のインデントを継続する
 set showmatch "対応する括弧を表示
 autocmd ColorScheme * highlight Comment ctermfg=22 guifg=#008800
 colorscheme molokai
+set cursorline
+hi clear CursorLine
 
 "####検索設定####
 set ignorecase "大文字/小文字を区別しない
@@ -94,8 +94,9 @@ set clipboard=unnamed,autoselect
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
+inoremap <C-b> <Left>
 inoremap <silent> jj <ESC>
-inoremap <silent> <C-j> j
+noremap <CR> o<ESC>
 
 "全角スペースの可視化
 function! ZenkakuSpace()
