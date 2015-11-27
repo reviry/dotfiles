@@ -47,6 +47,12 @@ NeoBundle 'nanotech/jellybeans.vim'
 "emmet"
 NeoBundle 'mattn/emmet-vim'
 
+"CoffeeScriptシンタックス"
+NeoBundle 'kchmck/vim-coffee-script'
+
+" Sassシンタックス
+NeoBundle 'cakebaker/scss-syntax.vim'
+
 "Rails補完"
 NeoBundle 'tpope/vim-rails'
 
@@ -55,6 +61,9 @@ NeoBundle 'tpope/vim-endwise'
 
 "シングルクオートとダブルクオートの入れ替え等
 NeoBundle 'tpope/vim-surround'
+
+" 閉じカッコを自動化
+NeoBundle 'Townk/vim-autoclose'
 
 "インデント可視化
 NeoBundle 'nathanaelkane/vim-indent-guides'
