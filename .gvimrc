@@ -1,11 +1,13 @@
 autocmd ColorScheme * highlight Comment ctermfg=22 guifg=#008800
+autocmd ColorScheme * highlight StatusLine guibg=White guifg=#0000FF
 colorscheme molokai
 hi clear CursorLine
+set imdisable
 
 """"""""""""""""""""""""""""""
 "挿入モード時、ステータスラインの色を変更
 """"""""""""""""""""""""""""""
-let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
+let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=yellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
 
 if has('syntax')
   augroup InsertHook
