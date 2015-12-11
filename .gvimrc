@@ -1,5 +1,6 @@
 autocmd ColorScheme * highlight Comment ctermfg=22 guifg=#008800
 autocmd ColorScheme * highlight StatusLine guibg=White guifg=#0000FF
+hi Visual  guifg=Black guibg=#DDDDDD gui=none
 colorscheme molokai
 hi clear CursorLine
 set imdisable

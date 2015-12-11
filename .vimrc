@@ -46,6 +46,7 @@ NeoBundle 'nanotech/jellybeans.vim'
 
 "emmet"
 NeoBundle 'mattn/emmet-vim'
+let g:user_emmet_leader_key='<c-e>'
 
 "CoffeeScriptシンタックス"
 NeoBundle 'kchmck/vim-coffee-script'
@@ -139,6 +140,15 @@ inoremap <C-l> <Right>
 inoremap <C-b> <Left>
 inoremap <silent> jj <ESC>
 noremap <CR> o<ESC>
+
+nnoremap j gj
+xnoremap j gj
+nnoremap k gk
+xnoremap k gk
+nnoremap gj j
+xnoremap gj j
+nnoremap gk k
+xnoremap gk k
 
 "全角スペースの可視化
 function! ZenkakuSpace()
