@@ -68,10 +68,96 @@ NeoBundle 'Townk/vim-autoclose'
 
 "インデント可視化
 NeoBundle 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   guibg=#333333 ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  guibg=#4a4a4a ctermbg=238
+let g:indent_guides_enable_on_vim_startup=1
 
 "行末の半角スペースを可視化
 NeoBundle 'bronson/vim-trailing-whitespace'
+
+"latex
+NeoBundle 'lervag/vimtex'
+let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+let g:vimtex_view_general_options = '-r @line @pdf @tex'
+let g:vimtex_view_general_options_latexmk = '-r 1'
+let g:latex_latexmk_continuous = 1
+
+"vim-quickrun"
+NeoBundle 'thinca/vim-quickrun'
+
+" LaTeX Quickrun
+let g:quickrun_config = {}
+let g:quickrun_config['tex'] = {
+\ 'command' : 'latexmk',
+\ 'outputter' : 'error',
+\ 'outputter/error/success' : 'null',
+\ 'outputter/error/error' : 'quickfix',
+\ 'srcfile' : expand("%"),
+\ 'cmdopt': '-pdfdvi',
+\ 'hook/sweep/files' : [
+\                      '%S:p:r.aux',
+\                      '%S:p:r.bbl',
+\                      '%S:p:r.blg',
+\                      '%S:p:r.dvi',
+\                      '%S:p:r.fdb_latexmk',
+\                      '%S:p:r.fls',
+\                      '%S:p:r.log',
+\                      '%S:p:r.out'
+\                      ],
+\ 'exec': '%c %o %a %s',
+\}
+
+let g:quickrun_config.tmptex = {
+\   'exec': [
+\           'mv %s %a/tmptex.latex',
+\           'latexmk -pdfdvi -pv -output-directory=%a %a/tmptex.latex',
+\           ],
+\   'args' : expand("%:p:h:gs?\\\\?/?"),
+\   'outputter' : 'error',
+\   'outputter/error/error' : 'quickfix',
+\
+\   'hook/eval/enable' : 1,
+\   'hook/eval/cd' : "%s:r",
+\
+\   'hook/eval/template' : '\documentclass{jreport}'
+\                         .'\usepackage[dvipdfmx]{graphicx, hyperref}'
+\                         .'\usepackage{float}'
+\                         .'\usepackage{amsmath,amssymb,amsthm,ascmac,mathrsfs}'
+\                         .'\allowdisplaybreaks[1]'
+\                         .'\theoremstyle{definition}'
+\                         .'\newtheorem{theorem}{定理}'
+\                         .'\newtheorem*{theorem*}{定理}'
+\                         .'\newtheorem{definition}[theorem]{定義}'
+\                         .'\newtheorem*{definition*}{定義}'
+\                         .'\renewcommand\vector[1]{\mbox{\boldmath{\$#1\$}}}'
+\                         .'\begin{document}'
+\                         .'%s'
+\                         .'\end{document}',
+\
+\   'hook/sweep/files' : [
+\                        '%a/tmptex.latex',
+\                        '%a/tmptex.out',
+\                        '%a/tmptex.fdb_latexmk',
+\                        '%a/tmptex.log',
+\                        '%a/tmptex.aux',
+\                        '%a/tmptex.dvi'
+\                        ],
+\}
+
+vnoremap <silent><buffer> <Space>s :QuickRun -mode v -type tmptex<CR>
+
+" QuickRun and view compile result quickly (but don't preview pdf file)
+nnoremap <silent><Space>s :QuickRun<CR>
+
+" autocmd
+"==============================
+augroup filetype
+  autocmd!
+  " tex file (I always use latex)
+  autocmd BufRead,BufNewFile *.tex set filetype=tex
+augroup END
+
 
 call neobundle#end()
 
@@ -131,8 +217,10 @@ endfunction
 "####検索設定####
 set ignorecase "大文字/小文字を区別しない
 set smartcase "検索文字列に大文字が含まれている場合は区別する
+nnoremap <ESC><ESC> :nohlsearch<CR>
 
-"####その他####
+ "####その他####
+set iskeyword+=-
 set clipboard=unnamed,autoselect
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -149,6 +237,8 @@ nnoremap gj j
 xnoremap gj j
 nnoremap gk k
 xnoremap gk k
+
+set imdisable
 
 "全角スペースの可視化
 function! ZenkakuSpace()
