@@ -219,7 +219,7 @@ set ignorecase "大文字/小文字を区別しない
 set smartcase "検索文字列に大文字が含まれている場合は区別する
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
- "####その他####
+"####その他####
 set iskeyword+=-
 set clipboard=unnamed,autoselect
 inoremap <C-j> <Down>
