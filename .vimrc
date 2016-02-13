@@ -253,3 +253,49 @@ if has('syntax')
   augroup END
   call ZenkakuSpace()
 endif
+
+"括弧・クォートの開き記号を削除したとき隣接する閉じ記号も削除
+function! DeleteParenthesesAdjoin()
+  let pos = col(".") - 1  " カーソルの位置．1からカウント
+  let str = getline(".")  " カーソル行の文字列
+  let parentLList = ["(", "[", "{", "\'", "\""]
+  let parentRList = [")", "]", "}", "\'", "\""]
+  let cnt = 0
+  let output = ""
+
+  if pos == strlen(str)
+    return "\b"
+  endif
+  for c in parentLList
+    if str[pos-1] == c && str[pos] == parentRList[cnt]
+      call cursor(line("."), pos + 2)
+      let output = "\b"
+      break
+    endif
+    let cnt += 1
+  endfor
+  return output."\b"
+endfunction
+inoremap <silent> <C-h> <C-R>=DeleteParenthesesAdjoin()<CR>
+
+" 隣接した括弧で改行したらインデント
+function! IndentBraces()
+  let pos = col(".") - 1
+  let str = getline(".")
+  let parentLList = ["(", "[", "{"]
+  let parentRList = [")", "]", "}"]
+  let cnt = 0
+  let output = ""
+
+  for c in parentLList
+    if str[pos-1] == c && str[pos] == parentRList[cnt]
+      let output = "\n\t\n\<UP>\<RIGHT>\<RIGHT>"
+      break
+    else
+      let output = "\n"
+    endif
+    let cnt += 1
+  endfor
+  return output
+endfunction
+inoremap <silent> <Enter> <C-R>=IndentBraces()<CR>
