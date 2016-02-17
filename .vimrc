@@ -226,7 +226,7 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 inoremap <C-b> <Left>
-inoremap <silent> jj <ESC>
+inoremap <silent> jj <ESC><Right>
 noremap <CR> o<ESC>
 
 nnoremap j gj
