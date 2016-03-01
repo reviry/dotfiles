@@ -247,6 +247,9 @@ xnoremap gj j
 nnoremap gk k
 xnoremap gk k
 
+nnoremap tn gt
+nnoremap tp gT
+
 set imdisable
 
 "全角スペースの可視化
