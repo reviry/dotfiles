@@ -46,13 +46,16 @@ NeoBundle 'nanotech/jellybeans.vim'
 
 "emmet"
 NeoBundle 'mattn/emmet-vim'
-let g:user_emmet_leader_key='<c-e>'
+" let g:user_emmet_leader_key='<c-t>'
 
 "CoffeeScriptシンタックス"
 NeoBundle 'kchmck/vim-coffee-script'
 
 " Sassシンタックス
 NeoBundle 'cakebaker/scss-syntax.vim'
+
+" slimシンタックス
+NeoBundle 'slim-template/vim-slim'
 
 "Rails補完"
 NeoBundle 'tpope/vim-rails'
@@ -62,6 +65,9 @@ NeoBundle 'tpope/vim-endwise'
 
 "シングルクオートとダブルクオートの入れ替え等
 NeoBundle 'tpope/vim-surround'
+
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-unimpaired'
 
 " 閉じカッコを自動化
 NeoBundle 'Townk/vim-autoclose'
@@ -177,6 +183,9 @@ set shiftwidth=2 "インデントの幅
 set autoindent "改行時に前の行のインデントを継続する
 set showmatch "対応する括弧を表示
 autocmd ColorScheme * highlight Comment ctermfg=22 guifg=#008800
+autocmd ColorScheme * highlight StatusLine ctermfg=21 guifg=#0000FF
+autocmd ColorScheme * highlight  Visual ctermfg=8 ctermbg=7 guifg=Black guibg=#DDDDDD gui=none
+autocmd ColorScheme * highlight  Search  guifg=Black guibg=#01A9DB gui=none
 colorscheme molokai
 set cursorline
 hi clear CursorLine
@@ -184,7 +193,7 @@ hi clear CursorLine
 """"""""""""""""""""""""""""""
 "挿入モード時、ステータスラインの色を変更
 """"""""""""""""""""""""""""""
-let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
+let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=yellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
 
 if has('syntax')
   augroup InsertHook
