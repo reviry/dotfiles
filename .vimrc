@@ -28,6 +28,7 @@ noremap <C-P> :Unite file_mru<CR>
 
 NeoBundle 'scrooloose/nerdtree'
 noremap <silent><C-e> :NERDTree<Cr>
+let NERDTreeIgnore = ['\.pyc$']
 
 " 一括コメントのON/OFF
 NeoBundle 'tomtom/tcomment_vim'
