@@ -3,6 +3,7 @@ zstyle ':completion:*:*:git:*' script ~/.zsh/completion/git-completion.bash
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
 export LANG=ja_JP.UTF-8
+export DJANGO_SETTINGS_MODULE="mb_2.settings.development"
 
 autoload -Uz colors
 colors
