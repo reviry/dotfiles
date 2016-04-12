@@ -47,7 +47,7 @@ NeoBundle 'nanotech/jellybeans.vim'
 
 "emmet"
 NeoBundle 'mattn/emmet-vim'
-" let g:user_emmet_leader_key='<c-t>'
+let g:user_emmet_leader_key='<C-T>'
 
 "CoffeeScriptシンタックス"
 NeoBundle 'kchmck/vim-coffee-script'
