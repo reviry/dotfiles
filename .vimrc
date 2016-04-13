@@ -28,7 +28,7 @@ noremap <C-P> :Unite file_mru<CR>
 
 NeoBundle 'scrooloose/nerdtree'
 noremap <silent><C-e> :NERDTree<Cr>
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$','\~$']
 
 " 一括コメントのON/OFF
 NeoBundle 'tomtom/tcomment_vim'
@@ -165,6 +165,7 @@ augroup filetype
   autocmd BufRead,BufNewFile *.tex set filetype=tex
 augroup END
 
+NeoBundle 'jmcantrell/vim-virtualenv'
 
 call neobundle#end()
 
@@ -190,6 +191,71 @@ autocmd ColorScheme * highlight  Search  guifg=Black guibg=#01A9DB gui=none
 colorscheme molokai
 set cursorline
 hi clear CursorLine
+
+"####検索設定####
+set ignorecase "大文字/小文字を区別しない
+set smartcase "検索文字列に大文字が含まれている場合は区別する
+nnoremap <ESC><ESC> :nohlsearch<CR>
+
+"####その他####
+set iskeyword+=-
+set clipboard=unnamed,autoselect
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-b> <Left>
+inoremap <silent> jj <ESC><Right>
+noremap <CR> o<ESC>
+
+nnoremap j gj
+xnoremap j gj
+nnoremap k gk
+xnoremap k gk
+nnoremap gj j
+xnoremap gj j
+nnoremap gk k
+xnoremap gk k
+
+nnoremap tn gt
+nnoremap tp gT
+
+set imdisable
+set visualbell
+
+" Jedi for python
+" NeoBundleLazy "davidhalter/jedi-vim", {
+"   \ "autoload": { "filetypes": [ "python", "python3", "djangohtml"] }}
+"
+" if ! empty(neobundle#get("jedi-vim"))
+"   let g:jedi#auto_initialization = 1
+"   let g:jedi#auto_vim_configuration = 0
+"
+"   nnoremap [jedi] <Nop>
+"   xnoremap [jedi] <Nop>
+"   nmap <Space>j [jedi]
+"   xmap <Space>j [jedi]
+"
+"   let g:jedi#completions_command = "<Tab>"
+"   let g:jedi#goto_assignments_command = "[jedi]g"
+"   let g:jedi#goto_definitions_command = "[jedi]d"
+"   let g:jedi#documentation_command = "[jedi]k"
+"   let g:jedi#rename_command = "[jedi]r"
+"   let g:jedi#usages_command = "[jedi]n"
+"   let g:jedi#popup_select_first = 0
+"   let g:jedi#popup_on_dot = 0
+"
+"   autocmd FileType python setlocal completeopt-=preview
+"
+"   " for w/ neocomplete
+"   if ! empty(neobundle#get("neocomplete.vim"))
+"     autocmd FileType python setlocal omnifunc=jedi#completions
+"     let g:jedi#completions_enabled = 0
+"     let g:jedi#auto_vim_configuration = 0
+"     let g:neocomplete#force_omni_input_patterns.python =
+"       \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+"   endif
+" endif
+
 
 """"""""""""""""""""""""""""""
 "挿入モード時、ステータスラインの色を変更
@@ -223,35 +289,6 @@ function! s:GetHighlight(hi)
   let hl = substitute(hl, 'xxx', '', '')
   return hl
 endfunction
-
-"####検索設定####
-set ignorecase "大文字/小文字を区別しない
-set smartcase "検索文字列に大文字が含まれている場合は区別する
-nnoremap <ESC><ESC> :nohlsearch<CR>
-
-"####その他####
-set iskeyword+=-
-set clipboard=unnamed,autoselect
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-inoremap <C-b> <Left>
-inoremap <silent> jj <ESC><Right>
-noremap <CR> o<ESC>
-
-nnoremap j gj
-xnoremap j gj
-nnoremap k gk
-xnoremap k gk
-nnoremap gj j
-xnoremap gj j
-nnoremap gk k
-xnoremap gk k
-
-nnoremap tn gt
-nnoremap tp gT
-
-set imdisable
 
 "全角スペースの可視化
 function! ZenkakuSpace()
