@@ -64,6 +64,11 @@ NeoBundle 'tpope/vim-rails'
 "Ruby補完"
 NeoBundle 'tpope/vim-endwise'
 
+" jsx syntax highlight
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
+
 "シングルクオートとダブルクオートの入れ替え等
 NeoBundle 'tpope/vim-surround'
 
