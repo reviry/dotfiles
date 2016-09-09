@@ -172,6 +172,8 @@ augroup END
 
 NeoBundle 'jmcantrell/vim-virtualenv'
 
+NeoBundle 'christoomey/vim-tmux-navigator'
+
 call neobundle#end()
 
 " Required:
