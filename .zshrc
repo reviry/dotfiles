@@ -13,11 +13,11 @@ colors
 
 autoload -Uz vcs_info
 setopt prompt_subst
-zstyle ':vcs_info:*' formats '%K{green}[%b]%k'
-zstyle ':vcs_info:*' actionformats '%K{red}[%b(%a)]%k'
+zstyle ':vcs_info:*' formats '%F{green}[%b]%f'
+zstyle ':vcs_info:*' actionformats '%F{red}[%b(%a)]%f'
 precmd() { vcs_info }
-PROMPT='%{${bg[blue]}%}[%~]%{${reset_color}%}
-%{${bg[yellow]}%}[%n@%m]%{${reset_color}%}${vcs_info_msg_0_}'
+PROMPT='%{${fg[blue]}%}[%~]%{${reset_color}%}
+%{${fg[yellow]}%}[%n@%m]%{${reset_color}%}${vcs_info_msg_0_}'
 
 #補完機能
 autoload -U compinit; compinit
