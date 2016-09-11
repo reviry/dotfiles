@@ -114,6 +114,9 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 " Colorscheme
 NeoBundle 'altercation/vim-colors-solarized'
 
+" A light configurable statusline and tabline
+NeoBundle 'itchyny/lightline.vim'
+
 call neobundle#end()
 
 " Required:
@@ -233,10 +236,6 @@ syntax enable
 " Show row number
 set number
 
-" Show line and column number
-set ruler
-set rulerformat=%l:%v/%L
-
 " Colorscheme
 set background=dark
 colorscheme solarized
@@ -245,39 +244,44 @@ colorscheme solarized
 set cursorline
 highlight CursorLine ctermfg=NONE ctermbg=0
 
-" Active statusline color
-highlight StatusLine ctermfg=21 ctermbg=231
+" Comment out because lightline.vim
+" " Show line and column number
+" set ruler
+" set rulerformat=%l:%v/%L
 
-" Emphasize statusline in the insert mode
-let g:hi_insert = 'highlight StatusLine ctermfg=226 ctermbg=21'
-
-if has('syntax')
-  augroup InsertHook
-    autocmd!
-    autocmd InsertEnter * call s:StatusLine('Enter')
-    autocmd InsertLeave * call s:StatusLine('Leave')
-  augroup END
-endif
-
-let s:slhlcmd = ''
-function! s:StatusLine(mode)
-  if a:mode == 'Enter'
-    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-    silent exec g:hi_insert
-  else
-    highlight clear StatusLine
-    silent exec s:slhlcmd
-  endif
-endfunction
-
-function! s:GetHighlight(hi)
-  redir => hl
-  exec 'highlight '.a:hi
-  redir END
-  let hl = substitute(hl, '[\r\n]', '', 'g')
-  let hl = substitute(hl, 'xxx', '', '')
-  return hl
-endfunction
+" " Active statusline color
+" highlight StatusLine ctermfg=21 ctermbg=231
+"
+" " Emphasize statusline in the insert mode
+" let g:hi_insert = 'highlight StatusLine ctermfg=226 ctermbg=21'
+"
+" if has('syntax')
+"   augroup InsertHook
+"     autocmd!
+"     autocmd InsertEnter * call s:StatusLine('Enter')
+"     autocmd InsertLeave * call s:StatusLine('Leave')
+"   augroup END
+" endif
+"
+" let s:slhlcmd = ''
+" function! s:StatusLine(mode)
+"   if a:mode == 'Enter'
+"     silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+"     silent exec g:hi_insert
+"   else
+"     highlight clear StatusLine
+"     silent exec s:slhlcmd
+"   endif
+" endfunction
+"
+" function! s:GetHighlight(hi)
+"   redir => hl
+"   exec 'highlight '.a:hi
+"   redir END
+"   let hl = substitute(hl, '[\r\n]', '', 'g')
+"   let hl = substitute(hl, 'xxx', '', '')
+"   return hl
+" endfunction
 
 " Visualize zenkaku-space
 function! ZenkakuSpace()
