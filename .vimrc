@@ -331,6 +331,67 @@ nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap sh <C-w>h
+nnoremap s<C-j> <C-w>J
+nnoremap s<C-k> <C-w>K
+nnoremap s<C-l> <C-w>L
+nnoremap s<C-h> <C-w>H
+
+" Resize windows for five rows or 5 columns
+let g:size = 5
+function! ResizeWindow(type)
+  let behavior = s:getResizeBehavior()
+  if a:type == 'left' || a:type == 'right'
+    exec ':vertical resize ' . behavior[a:type] . g:size
+  else
+    exec ':resize ' . behavior[a:type] . g:size
+  endif
+endfunction
+
+" Decide behavior of up, down, left and right key
+" to increase or decrease window size
+function! s:getResizeBehavior()
+  let signs = {'left':'-', 'down':'+', 'up':'-', 'right':'+'}
+  let ei = s:getEdgeInfo()
+  if !ei['left'] && ei['right']
+    let signs['left'] = '+'
+    let signs['right'] = '-'
+  endif
+  if !ei['up'] && ei['down']
+    let signs['up'] = '+'
+    let signs['down'] = '-'
+  endif
+  return signs
+endfunction
+
+" When value is 1 in return dictionary,
+" current window has edge in direction of dictionary key name
+function! s:getEdgeInfo()
+  let chk_direct = ['left', 'down', 'up', 'right']
+  let result = {}
+  for direct in chk_direct
+    let result[direct] = !s:checkDestinationPresence(direct)
+  endfor
+  return result
+endfunction
+
+function! s:checkDestinationPresence(direct)
+  let map_direct = {'left':'h', 'down':'j', 'up':'k', 'right':'l'}
+  if has_key(map_direct, a:direct)
+    let direct = map_direct[a:direct]
+  elseif index(values(map_direct), a:direct) != -1
+    let direct = a:direct
+  endif
+  let from = winnr()
+  exe "wincmd " . direct
+  let to = winnr()
+  exe from . "wincmd w"
+  return from != to
+endfunction
+
+nnoremap <silent> sJ :<C-u>call ResizeWindow('down')<CR>
+nnoremap <silent> sK :<C-u>call ResizeWindow('up')<CR>
+nnoremap <silent> sL :<C-u>call ResizeWindow('right')<CR>
+nnoremap <silent> sH :<C-u>call ResizeWindow('left')<CR>
 
 " Seamless move to tmux pane
 let g:tmux_navigator_no_mappings = 1
