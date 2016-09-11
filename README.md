@@ -1,5 +1,7 @@
 # dotfiles
 
+![screenshot](https://raw.githubusercontent.com/wiki/yuuuuuki/dotfiles/images/demo.png)
+
 ## Features
 
 - **OS X** El Capitan 10.11.5
