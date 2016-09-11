@@ -39,6 +39,8 @@ NeoBundle 'scrooloose/nerdtree'
 noremap <silent><C-e> :NERDTree<Cr>
 let NERDTreeIgnore = ['\.pyc$','\~$']
 
+NeoBundle 'Shougo/vimfiler'
+
 " Completion
 NeoBundle 'Shougo/neocomplete.vim'
 let g:neocomplete#enable_at_startup = 1
