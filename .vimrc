@@ -244,6 +244,9 @@ colorscheme solarized
 set cursorline
 highlight CursorLine ctermfg=NONE ctermbg=0
 
+" Command line's height
+set cmdheight=1
+
 " Comment out because lightline.vim
 " " Show line and column number
 " set ruler
