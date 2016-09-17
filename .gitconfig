@@ -33,5 +33,14 @@
 [merge]
 	tool = vimdiff
 
+[alias]
+  a  = add
+  c  = commit
+  ca = commit --amend --no-edit
+  co = checkout
+  d  = diff
+  s  = status
+  l  = log --oneline --graph
+
 [ghq]
   root = ~/src

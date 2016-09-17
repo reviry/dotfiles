@@ -21,15 +21,6 @@ alias rc="bundle exec rails c"
 
 alias mvim="mvim --remote-tab-silent"
 
-# ------------------------------
-# Git Aliases
-# ------------------------------
-# source /usr/local/etc/bash_completion.d/git-prompt.sh
-# source /usr/local/etc/bash_completion.d/git-completion.bash
-GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\h\[\033[00m\]:\W\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
-alias glog='git log --oneline --graph'
-#-------------------------------
 set completion-ignore-case on
 
 # zstyle ':completion:*:*:git:*' script ~/.zsh/completion/git-completion.bash
