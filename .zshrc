@@ -1,4 +1,37 @@
-source ~/.bashrc
+export PATH=/usr/local/bin:/usr/local/sbin/:/usr/bin:/bin:/usr/sbin:/sbin
+
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+
+export PATH=$PATH:$HOME/.rbenv/bin
+
+export PATH=$PATH:$HOME/.nodebrew/current/bin
+
+export GOPATH=$HOME
+export PATH=$PATH:$GOPATH/bin
+
+### Added by the Heroku Toolbelt
+export PATH=$PATH:/usr/local/heroku/bin
+
+export R_HOME=/usr/bin/R
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+eval "$(rbenv init -)"
+alias rs="bundle exec rails s"
+alias rc="bundle exec rails c"
+
+alias mvim="mvim --remote-tab-silent"
+
+# ------------------------------
+# Git Aliases
+# ------------------------------
+# source /usr/local/etc/bash_completion.d/git-prompt.sh
+# source /usr/local/etc/bash_completion.d/git-completion.bash
+GIT_PS1_SHOWDIRTYSTATE=true
+export PS1='\h\[\033[00m\]:\W\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
+alias glog='git log --oneline --graph'
+#-------------------------------
+set completion-ignore-case on
+
 # zstyle ':completion:*:*:git:*' script ~/.zsh/completion/git-completion.bash
 # fpath=(~/.zsh/completion $fpath)
 #
