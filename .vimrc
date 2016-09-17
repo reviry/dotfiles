@@ -136,6 +136,9 @@ set encoding=utf-8
 " Use English
 language C
 
+" Enable backspace
+set backspace=indent,eol,start
+
 "Not create swap file
 set noswapfile
 
