@@ -84,6 +84,9 @@ setopt share_history
 setopt hist_ignore_all_dups
 setopt hist_save_nodups
 
+# Confirm when executing 'rm *'
+setopt rm_star_wait
+
 # keybind like emacs
 bindkey -e
 
