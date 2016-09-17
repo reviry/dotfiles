@@ -53,35 +53,35 @@ precmd() { vcs_info }
 PROMPT='%{${fg[blue]}%}[%~]%{${reset_color}%}
 %{${fg[yellow]}%}[%n@%m]%{${reset_color}%}${vcs_info_msg_0_}'
 
-set completion-ignore-case on
-
-setopt list_packed
-#大文字、小文字を区別せず補完する
+# ignore case
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-#補完でカラーを使用する
+
 zstyle ':completion:*' list-colors "${LS_COLORS}"
 
-# ディレクトリ名だけでcdする
+# cd
 setopt auto_cd
-# cd したら自動的にpushdする
 setopt auto_pushd
-# 重複したディレクトリを追加しない
 setopt pushd_ignore_dups
 
+# check spell
 setopt correct
 
-# Ctrl+Dでzshを終了しない
+# does not exit zsh by C-d
 setopt ignore_eof
 
-# beep を無効にする
+# no beep
 setopt no_beep
 
-# 同時に起動したzshの間でヒストリを共有する
+# share History
 setopt share_history
-# 同じコマンドをヒストリに残さない
-setopt hist_ignore_all_dups
 
+# Delete an old recorded event if a new event is a duplicate.
+setopt hist_ignore_all_dups
+setopt hist_save_nodups
+
+# keybind like emacs
 bindkey -e
+
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^[P" history-beginning-search-backward-end
