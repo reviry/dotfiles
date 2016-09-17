@@ -100,6 +100,13 @@ alias ls="ls -GF"
 alias rs="bundle exec rails s"
 alias rc="bundle exec rails c"
 
+# ghq + fzf
+frepo() {
+  local dir
+  dir=$(ghq list > /dev/null | fzf-tmux --reverse +m) &&
+    cd $(ghq root)/$dir
+}
+
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
 function is_osx() { [[ $OSTYPE == darwin* ]]; }
 function is_screen_running() { [ ! -z "$STY" ]; }
