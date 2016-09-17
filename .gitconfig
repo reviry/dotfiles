@@ -1,0 +1,36 @@
+[core]
+	excludesfile = /Users/Yuuki/.gitignore_global
+	editor = vim
+
+[user]
+	name = Yuki Urakawa
+	email = urakawa.0205@gmail.com
+
+[push]
+	default = simple
+
+[color]
+	ui = true
+
+[pager]
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
+
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+
+[grep]
+	lineNumber = true
+
+[diff]
+	tool = vimdiff
+  algorithm = histogram
+
+[merge]
+	tool = vimdiff
+
+[ghq]
+  root = ~/src
