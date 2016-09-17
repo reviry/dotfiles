@@ -249,8 +249,9 @@ highlight CursorLine ctermfg=NONE ctermbg=0
 " Command line's height
 set cmdheight=1
 
-" lightline
+set laststatus=2
 
+" lightline
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'mode_map': { 'c': 'NORMAL' },
