@@ -8,6 +8,7 @@
 #
 
 
+# autoload
 autoload -U compinit && compinit
 autoload -Uz colors && colors
 autoload -Uz vcs_info
@@ -15,6 +16,11 @@ autoload history-search-end
 
 # language
 export LANG=ja_JP.UTF-8
+
+# History
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000000
+export SAVEHIST=1000000
 
 export PATH=/usr/local/bin:/usr/local/sbin/:/usr/bin:/bin:/usr/sbin:/sbin
 
@@ -78,8 +84,8 @@ setopt hist_ignore_all_dups
 bindkey -e
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
+bindkey "^[P" history-beginning-search-backward-end
+bindkey "^[N" history-beginning-search-forward-end
 
 # Alias settings
 alias rs="bundle exec rails s"
