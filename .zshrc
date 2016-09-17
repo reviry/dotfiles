@@ -170,3 +170,24 @@ function tmux_automatically_attach_session()
     fi
 }
 tmux_automatically_attach_session
+
+
+#################################
+# zplug
+################################
+
+if [[ -f ~/.zplug/init.zsh ]]; then
+  source ~/.zplug/init.zsh
+
+  zplug "zplug/zplug"
+
+  if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+      echo; zplug install
+    else
+      echo
+    fi
+  fi
+  zplug load --verbose
+fi
