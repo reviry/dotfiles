@@ -104,7 +104,9 @@ alias rc="bundle exec rails c"
 function frepo() {
   local dir
   dir=$(ghq list > /dev/null | fzf-tmux --reverse +m) &&
-    cd $(ghq root)/$dir
+    builtin cd $(ghq root)/$dir
+  precmd
+  zle reset-prompt
 }
 zle -N frepo
 bindkey '^G' frepo
