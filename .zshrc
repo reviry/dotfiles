@@ -101,11 +101,13 @@ alias rs="bundle exec rails s"
 alias rc="bundle exec rails c"
 
 # ghq + fzf
-frepo() {
+function frepo() {
   local dir
   dir=$(ghq list > /dev/null | fzf-tmux --reverse +m) &&
     cd $(ghq root)/$dir
 }
+zle -N frepo
+bindkey '^G' frepo
 
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
 function is_osx() { [[ $OSTYPE == darwin* ]]; }
