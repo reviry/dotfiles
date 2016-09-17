@@ -181,6 +181,9 @@ if [[ -f ~/.zplug/init.zsh ]]; then
 
   zplug "zplug/zplug"
 
+  zplug "b4b4r07/enhancd", \
+    use:init.sh
+
   if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
