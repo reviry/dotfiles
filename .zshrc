@@ -1,3 +1,21 @@
+#
+# ███████╗███████╗██╗  ██╗██████╗  ██████╗
+# ╚══███╔╝██╔════╝██║  ██║██╔══██╗██╔════╝
+#   ███╔╝ ███████╗███████║██████╔╝██║
+#  ███╔╝  ╚════██║██╔══██║██╔══██╗██║
+# ███████╗███████║██║  ██║██║  ██║╚██████╗
+# ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
+#
+
+
+autoload -U compinit && compinit
+autoload -Uz colors && colors
+autoload -Uz vcs_info
+autoload history-search-end
+
+# language
+export LANG=ja_JP.UTF-8
+
 export PATH=/usr/local/bin:/usr/local/sbin/:/usr/bin:/bin:/usr/sbin:/sbin
 
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
@@ -6,36 +24,22 @@ export PATH=$PATH:$HOME/.rbenv/bin
 
 export PATH=$PATH:$HOME/.nodebrew/current/bin
 
+# golang
 export GOPATH=$HOME
 export PATH=$PATH:$GOPATH/bin
 
-### Added by the Heroku Toolbelt
+# Added by the Heroku Toolbelt
 export PATH=$PATH:/usr/local/heroku/bin
 
 export R_HOME=/usr/bin/R
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
-eval "$(rbenv init -)"
-alias rs="bundle exec rails s"
-alias rc="bundle exec rails c"
-
-alias mvim="mvim --remote-tab-silent"
-
-set completion-ignore-case on
-
-# zstyle ':completion:*:*:git:*' script ~/.zsh/completion/git-completion.bash
-# fpath=(~/.zsh/completion $fpath)
-#
-# autoload -U compinit
-# compinit -u
-
-export LANG=ja_JP.UTF-8
 export DJANGO_SETTINGS_MODULE="mb_2.settings.development"
 
-autoload -Uz colors
-colors
+# rbenv
+eval "$(rbenv init -)"
 
-autoload -Uz vcs_info
+# prompt
 setopt prompt_subst
 zstyle ':vcs_info:*' formats '%F{green}[%b]%f'
 zstyle ':vcs_info:*' actionformats '%F{red}[%b(%a)]%f'
@@ -43,16 +47,13 @@ precmd() { vcs_info }
 PROMPT='%{${fg[blue]}%}[%~]%{${reset_color}%}
 %{${fg[yellow]}%}[%n@%m]%{${reset_color}%}${vcs_info_msg_0_}'
 
-#補完機能
-autoload -U compinit; compinit
+set completion-ignore-case on
+
 setopt list_packed
 #大文字、小文字を区別せず補完する
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 #補完でカラーを使用する
 zstyle ':completion:*' list-colors "${LS_COLORS}"
-
-# autoload predict-on
-# predict-on
 
 # ディレクトリ名だけでcdする
 setopt auto_cd
@@ -75,12 +76,14 @@ setopt share_history
 setopt hist_ignore_all_dups
 
 bindkey -e
-autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
+# Alias settings
+alias rs="bundle exec rails s"
+alias rc="bundle exec rails c"
 
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
 function is_osx() { [[ $OSTYPE == darwin* ]]; }
