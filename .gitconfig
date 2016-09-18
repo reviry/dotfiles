@@ -35,6 +35,8 @@
 
 [alias]
   a  = add
+  au = add -u
+  aa = add -A
   c  = commit -m
   ca = commit --amend --no-edit
   co = checkout
