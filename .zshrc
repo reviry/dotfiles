@@ -52,14 +52,6 @@ export DJANGO_SETTINGS_MODULE="mb_2.settings.development"
 # rbenv
 eval "$(rbenv init -)"
 
-# prompt
-setopt prompt_subst
-zstyle ':vcs_info:*' formats '%F{green}[%b]%f'
-zstyle ':vcs_info:*' actionformats '%F{red}[%b(%a)]%f'
-precmd() { vcs_info }
-PROMPT='%{${fg[blue]}%}[%~]%{${reset_color}%}
-%{${fg[yellow]}%}[%n@%m]%{${reset_color}%}${vcs_info_msg_0_}'
-
 # ignore case
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
@@ -118,6 +110,18 @@ bindkey '^G' frepo
 alias ls="ls -GF"
 alias rs="bundle exec rails s"
 alias rc="bundle exec rails c"
+
+
+##########################################
+# Appearance
+##########################################
+# prompt
+setopt prompt_subst
+zstyle ':vcs_info:*' formats '[%F{green}%b%f]'
+zstyle ':vcs_info:*' actionformats '[%F{red}%b(%a)%f]'
+precmd() { vcs_info }
+PROMPT='[%{${fg[cyan]}%}%~%{${reset_color}%}]
+[%{${fg[yellow]}%}%n@%m%{${reset_color}%}]${vcs_info_msg_0_}$ '
 
 
 ##########################################
