@@ -81,6 +81,10 @@ setopt hist_save_nodups
 # Confirm when executing 'rm *'
 setopt rm_star_wait
 
+# Setup fzf
+source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh
+source ~/.zplug/repos/junegunn/fzf/shell/key-bindings.zsh
+
 
 ##########################################
 # Key bindings
@@ -243,6 +247,9 @@ if [[ -f ~/.zplug/init.zsh ]]; then
     nice:10
 
   zplug "zsh-users/zsh-completions"
+
+  zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
+  zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
 
   if ! zplug check --verbose; then
     printf "Install? [y/N]: "
