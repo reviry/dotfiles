@@ -149,6 +149,19 @@ fshow() {
   done
 }
 
+# fuzzy git add
+fadd() {
+  local addfiles
+  addfiles=($(git status --short |
+              awk '{if (substr($0,2,1) !~ / /) print $2}' |
+              fzf-tmux --multi))
+  if [[ -n $addfiles ]]; then
+    git add ${@:2} $addfiles && echo "added: $addfiles"
+  else
+    echo "nothing added."
+  fi
+}
+
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
 function is_osx() { [[ $OSTYPE == darwin* ]]; }
 function is_screen_running() { [ ! -z "$STY" ]; }
