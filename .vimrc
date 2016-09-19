@@ -119,6 +119,10 @@ NeoBundle 'altercation/vim-colors-solarized'
 " A light configurable statusline and tabline
 NeoBundle 'itchyny/lightline.vim'
 
+" fzf
+NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf.vim'
+
 call neobundle#end()
 
 " Required:
@@ -506,3 +510,24 @@ nnoremap <C-g> 1<C-g>
 " Nop features
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
+
+" fzf
+" Open files at current directory
+nnoremap <silent> <Leader>a :call fzf#run({
+      \    'sink': 'e',
+      \    'down': '40%'
+      \  })<CR>
+
+" Search old files
+function! s:all_files()
+  return extend(
+        \  filter(copy(v:oldfiles),
+        \    "v:val !~ 'fugitive:\\|NERD_tree\\|^/tmp/\\|.git/'"),
+        \  map(filter(range(1, bufnr('$')), 'buflisted(v:val)'), 'bufname(v:val)'))
+endfunction
+
+nnoremap <silent> <Leader>e :call fzf#run({
+      \    'source': reverse(<sid>all_files()),
+      \    'sink': 'e',
+      \    'down': '40%'
+      \  })<CR>
