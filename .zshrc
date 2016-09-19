@@ -164,7 +164,7 @@ fadd() {
   local addfiles
   addfiles=($(git status --short |
               awk '{if (substr($0,2,1) !~ / /) print $2}' |
-              fzf-tmux --multi))
+              fzf-tmux --multi --exit-0))
   if [[ -n $addfiles ]]; then
     git add ${@:2} $addfiles && echo "added: $addfiles"
   else
