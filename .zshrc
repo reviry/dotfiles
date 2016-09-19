@@ -84,6 +84,12 @@ setopt rm_star_wait
 # Setup fzf
 source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh
 source ~/.zplug/repos/junegunn/fzf/shell/key-bindings.zsh
+# Setting ag as the default source for fzf
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+_fzf_compgen_path() {
+  ag --hidden --ignore .git -g "" "$1"
+}
 
 
 ##########################################
