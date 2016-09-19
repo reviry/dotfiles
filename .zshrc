@@ -161,15 +161,21 @@ fshow() {
 
 # fuzzy git add
 fadd() {
-  local addfiles
-  addfiles=($(git status --short |
-              awk '{if (substr($0,2,1) !~ / /) print $2}' |
-              fzf-tmux --multi --exit-0))
-  if [[ -n $addfiles ]]; then
-    git add ${@:2} $addfiles && echo "added: $addfiles"
-  else
-    echo "nothing added."
-  fi
+  local out q n addfiles
+  while out=$(
+      git status --short |
+      awk '{if (substr($0,2,1) !~ / /) print $2}' |
+      fzf-tmux --multi --exit-0 --expect=ctrl-d); do
+    q=$(head -1 <<< "$out")
+    n=$[$(wc -l <<< "$out") - 1]
+    addfiles=(`echo $(tail "-$n" <<< "$out")`)
+    [[ -z "$addfiles" ]] && continue
+    if [ "$q" = ctrl-d ]; then
+      git diff --color=always $addfiles | less -R
+    else
+      git add $addfiles
+    fi
+  done
 }
 
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
