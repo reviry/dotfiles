@@ -178,6 +178,14 @@ fadd() {
   done
 }
 
+# Change tmux session
+fs() {
+  local session
+  session=$(tmux ls -F "#{session_name}" | \
+    fzf --query="$1" --select-1 --exit-0) &&
+  tmux switch-client -t "$session"
+}
+
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
 function is_osx() { [[ $OSTYPE == darwin* ]]; }
 function is_screen_running() { [ ! -z "$STY" ]; }
