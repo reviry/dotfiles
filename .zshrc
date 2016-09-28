@@ -172,6 +172,16 @@ frepo() {
 }
 zle -N frepo
 
+# search projects
+fpro() {
+  local dir
+  dir=$(find ~/projects -type d -maxdepth 2 > /dev/null | fzf-tmux --reverse) &&
+    builtin cd $dir
+  precmd
+  zle reset-prompt
+}
+zle -N fpro
+
 
 ##########################################
 # Key bindings
@@ -186,6 +196,8 @@ bindkey '^N' history-substring-search-down
 # search local repository
 bindkey '^G' frepo
 
+# search projects
+bindkey '^J' fpro
 
 ##########################################
 # Others
