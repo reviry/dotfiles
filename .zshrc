@@ -47,8 +47,6 @@ export PATH=$PATH:/usr/local/heroku/bin
 export R_HOME=/usr/bin/R
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
-export DJANGO_SETTINGS_MODULE="mb_2.settings.development"
-
 # rbenv
 eval "$(rbenv init -)"
 
@@ -93,36 +91,6 @@ _fzf_compgen_path() {
 
 
 ##########################################
-# Key bindings
-##########################################
-# keybind like emacs
-bindkey -e
-
-# search history
-bindkey '^P' history-substring-search-up
-bindkey '^N' history-substring-search-down
-
-# ghq + fzf
-frepo() {
-  local dir
-  dir=$(ghq list > /dev/null | fzf-tmux --reverse +m) &&
-    builtin cd $(ghq root)/$dir
-  precmd
-  zle reset-prompt
-}
-zle -N frepo
-bindkey '^G' frepo
-
-
-##########################################
-# Alias settings
-##########################################
-alias ls="ls -GF"
-alias rs="bundle exec rails s"
-alias rc="bundle exec rails c"
-
-
-##########################################
 # Appearance
 ##########################################
 # prompt
@@ -132,6 +100,14 @@ zstyle ':vcs_info:*' actionformats '[%F{red}%b(%a)%f]'
 precmd() { vcs_info }
 PROMPT='[%{${fg[cyan]}%}%~%{${reset_color}%}]
 [%{${fg[yellow]}%}%n@%m%{${reset_color}%}]${vcs_info_msg_0_}$ '
+
+
+##########################################
+# Alias settings
+##########################################
+alias ls="ls -GF"
+alias rs="bundle exec rails s"
+alias rc="bundle exec rails c"
 
 
 ##########################################
@@ -186,6 +162,35 @@ fs() {
   tmux switch-client -t "$session"
 }
 
+# ghq + fzf
+frepo() {
+  local dir
+  dir=$(ghq list > /dev/null | fzf-tmux --reverse +m) &&
+    builtin cd $(ghq root)/$dir
+  precmd
+  zle reset-prompt
+}
+zle -N frepo
+
+
+##########################################
+# Key bindings
+##########################################
+# keybind like emacs
+bindkey -e
+
+# search history
+bindkey '^P' history-substring-search-up
+bindkey '^N' history-substring-search-down
+
+# search local repository
+bindkey '^G' frepo
+
+
+##########################################
+# Others
+##########################################
+# tmux session attach
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
 function is_osx() { [[ $OSTYPE == darwin* ]]; }
 function is_screen_running() { [ ! -z "$STY" ]; }
