@@ -142,6 +142,9 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'junegunn/fzf'
 NeoBundle 'junegunn/fzf.vim'
 
+" ag
+NeoBundle 'rking/ag.vim'
+
 call neobundle#end()
 
 " Required:
