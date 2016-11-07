@@ -589,3 +589,6 @@ nnoremap <silent> <Leader>e :call fzf#run({
       \    'sink': 'e',
       \    'down': '40%'
       \  })<CR>
+
+command! -nargs=* -complete=file AgPreview :call fzf#vim#ag_raw(<q-args>, fzf#wrap('ag-raw',
+      \ {'options': "--preview 'coderay $(cut -d: -f1 <<< {}) 2> /dev/null | sed -n $(cut -d: -f2 <<< {}),\\$p | head -".&lines."'"}))
