@@ -247,6 +247,9 @@ set hlsearch
 set novisualbell
 set vb t_vb=
 
+" md as markdown instead of modula2
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+
 " Delete parenthesis and quotations when left one was deleted
 function! DeleteParenthesesAdjoin()
   let pos = col(".") - 1
