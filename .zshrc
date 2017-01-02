@@ -50,6 +50,8 @@ export PATH=$PATH:/usr/local/heroku/bin
 export R_HOME=/usr/bin/R
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
+export PATH=$PATH:~/Qt5.5.1/5.5/clang_64/bin
+
 # rbenv
 eval "$(rbenv init -)"
 
