@@ -447,6 +447,9 @@ let maplocalleader = ','
 nmap <Space> [Space]
 nnoremap [Space] <Nop>
 
+nnoremap ; :
+nnoremap : ;
+
 " Simply escape
 inoremap jj <ESC><Right>
 cnoremap <expr> j getcmdline()[getcmdpos()-2] ==# 'j' ? "\<BS>\<C-c>" : 'j'
