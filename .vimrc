@@ -447,8 +447,11 @@ let maplocalleader = ','
 nmap <Space> [Space]
 nnoremap [Space] <Nop>
 
+" Switch ; : in normal mode and visual mode
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " Simply escape
 inoremap jj <ESC><Right>
