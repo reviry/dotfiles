@@ -13,6 +13,6 @@
 ## Installation
 
 ```
-$ git clone https://github.com/yuuuuuki/dotfiles.git ~/dotfiles
+$ git clone https://github.com/reviry/dotfiles.git ~/dotfiles
 $ cd ~/dotfiles && sh install.sh
 ```
