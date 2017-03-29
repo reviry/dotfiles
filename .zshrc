@@ -113,6 +113,7 @@ PROMPT='[%{${fg[cyan]}%}%~%{${reset_color}%}]
 alias ls="ls -GF"
 alias rs="bundle exec rails s"
 alias rc="bundle exec rails c"
+alias ctags="`brew --prefix`/bin/ctags"
 
 
 ##########################################
