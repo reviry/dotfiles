@@ -296,7 +296,7 @@ if [[ -f ~/.zplug/init.zsh ]]; then
   zplug "zsh-users/zsh-history-substring-search"
 
   zplug "zsh-users/zsh-syntax-highlighting", \
-    nice:10
+    defer:2
 
   zplug "zsh-users/zsh-completions"
 
