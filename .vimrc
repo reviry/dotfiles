@@ -180,6 +180,9 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'junegunn/fzf'
 NeoBundle 'junegunn/fzf.vim'
 
+" golang
+NeoBundle 'fatih/vim-go'
+
 call neobundle#end()
 
 " Required:
