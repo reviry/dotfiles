@@ -41,9 +41,6 @@ export PATH=$PATH:$HOME/.rbenv/bin
 export GOPATH=$HOME
 export PATH=$PATH:$GOPATH/bin
 
-# php
-export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-
 # Added by the Heroku Toolbelt
 export PATH=$PATH:/usr/local/heroku/bin
 
