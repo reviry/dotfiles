@@ -41,7 +41,7 @@
   ca = commit --amend --no-edit
   co = checkout
   d  = diff
-  s  = status
+  s  = status --short --branch
   l  = log --oneline --graph
 
 [ghq]
