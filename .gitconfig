@@ -40,9 +40,9 @@
   c  = commit -m
   ca = commit --amend --no-edit
   co = checkout
-  d  = diff
+  d  = diff --color-words
   s  = status --short --branch
-  l  = log --oneline --graph
+  l  = log --oneline --graph --decorate
 
 [ghq]
   root = ~/src
