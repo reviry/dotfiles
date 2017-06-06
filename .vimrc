@@ -223,6 +223,11 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2
+augroup END
+
 " Emphasize the matching parenthesis
 set showmatch
 
