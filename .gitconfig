@@ -43,6 +43,7 @@
   d  = diff --color-words
   s  = status --short --branch
   l  = log --oneline --graph --decorate
+  b  = branch
 
 [ghq]
   root = ~/src
