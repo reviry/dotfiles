@@ -254,6 +254,10 @@ set hlsearch
 set novisualbell
 set vb t_vb=
 
+" Enable undo
+set undofile
+set undodir=~/.vim/undo
+
 " md as markdown instead of modula2
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
