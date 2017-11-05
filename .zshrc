@@ -41,6 +41,13 @@ export PATH=$PATH:$HOME/.rbenv/bin
 export GOPATH=$HOME
 export PATH=$PATH:$GOPATH/bin
 
+# pyenv
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+export PATH=$PYENV_ROOT/shims:$PATH
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # Added by the Heroku Toolbelt
 export PATH=$PATH:/usr/local/heroku/bin
 
