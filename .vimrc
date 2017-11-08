@@ -183,6 +183,12 @@ NeoBundle 'junegunn/fzf.vim'
 " golang
 NeoBundle 'fatih/vim-go'
 
+" Vim motion on speed
+NeoBundle 'easymotion/vim-easymotion'
+let g:EasyMotion_startofline = 0
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1
+
 call neobundle#end()
 
 " Required:
@@ -617,3 +623,10 @@ command! -nargs=+ -complete=file AgRaw call fzf#vim#ag_raw(<q-args>)
 
 command! -nargs=* -complete=file AgPreview :call fzf#vim#ag_raw(<q-args>, fzf#wrap('ag-raw',
       \ {'options': "--preview 'coderay $(cut -d: -f1 <<< {}) 2> /dev/null | sed -n $(cut -d: -f2 <<< {}),\\$p | head -".&lines."'"}))
+
+" easymotion
+nmap <Leader>e <Plug>(easymotion-s2)
+nmap <Leader>l <Plug>(easymotion-lineforward)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+nmap <Leader>h <Plug>(easymotion-linebackward)
