@@ -104,11 +104,11 @@ _fzf_compgen_path() {
 ##########################################
 # prompt
 setopt prompt_subst
-zstyle ':vcs_info:*' formats '[%F{green}%b%f]'
-zstyle ':vcs_info:*' actionformats '[%F{red}%b(%a)%f]'
+zstyle ':vcs_info:*' formats ' (%F{green}%b%f)'
+zstyle ':vcs_info:*' actionformats ' (%F{red}%b(%a)%f)'
 precmd() { vcs_info }
-PROMPT='[%{${fg[cyan]}%}%~%{${reset_color}%}]
-[%{${fg[yellow]}%}%n@%m%{${reset_color}%}]${vcs_info_msg_0_}$ '
+PROMPT='[%{${fg[cyan]}%}%n@%m:%~%{${reset_color}%}${vcs_info_msg_0_}]
+$ '
 
 
 ##########################################
