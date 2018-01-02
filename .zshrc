@@ -15,6 +15,8 @@ autoload -U compinit && compinit
 autoload -Uz colors && colors
 autoload -Uz vcs_info
 autoload history-search-end
+autoload -Uz add-zsh-hook
+autoload -Uz terminfo
 
 # language
 export LANG=ja_JP.UTF-8
@@ -107,8 +109,31 @@ setopt prompt_subst
 zstyle ':vcs_info:*' formats ' (%F{green}%b%f)'
 zstyle ':vcs_info:*' actionformats ' (%F{red}%b(%a)%f)'
 precmd() { vcs_info }
-PROMPT='[%{${fg[cyan]}%}%n@%m:%~%{${reset_color}%}${vcs_info_msg_0_}]
-$ '
+PROMPT_2=$'[%{${fg[cyan]}%}%n@%m:%~%{${reset_color}%}${vcs_info_msg_0_}]\n$ '
+
+terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]$terminfo[cud1]
+left_down_prompt_preexec() {
+    print -rn -- $terminfo[el]
+}
+add-zsh-hook preexec left_down_prompt_preexec
+
+function zle-line-init zle-keymap-select
+{
+  case $KEYMAP in
+    main|viins)
+      VIMODE="$fg[yellow]-- INSERT --$reset_color"
+      ;;
+    vicmd)
+      VIMODE="$fg[cyan]-- NORMAL --$reset_color"
+      ;;
+  esac
+
+  PROMPT="%{$terminfo_down_sc$VIMODE$terminfo[rc]%}$PROMPT_2"
+  zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 
 ##########################################
