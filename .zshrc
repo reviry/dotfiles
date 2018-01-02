@@ -38,7 +38,7 @@ export PATH=$PATH:$HOME/.rbenv/bin
 
 
 # golang
-export GOPATH=$HOME
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 # pyenv

@@ -46,4 +46,4 @@
   b  = branch
 
 [ghq]
-  root = ~/src
+  root = ~/go/src
