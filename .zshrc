@@ -196,8 +196,10 @@ zle -N fpro
 ##########################################
 # Key bindings
 ##########################################
-# keybind like emacs
-bindkey -e
+# keybind like vi
+bindkey -v
+bindkey -M viins '^h' backward-delete-char
+bindkey -M viins '^w' backward-kill-word
 
 # search history
 bindkey '^P' history-substring-search-up
