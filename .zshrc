@@ -223,8 +223,27 @@ zle -N fpro
 ##########################################
 # keybind like vi
 bindkey -v
-bindkey -M viins '^h' backward-delete-char
-bindkey -M viins '^w' backward-kill-word
+
+# Vim-like escaping jj keybind
+bindkey -M viins 'jj' vi-cmd-mode
+
+# Add emacs-like keybind to viins mode
+bindkey -M viins '^F'  forward-char
+bindkey -M viins '^B'  backward-char
+bindkey -M viins '^A'  beginning-of-line
+bindkey -M viins '^E'  end-of-line
+bindkey -M viins '^K'  kill-line
+bindkey -M viins '^Y'  yank
+bindkey -M viins '^W'  backward-kill-word
+bindkey -M viins '^U'  backward-kill-line
+bindkey -M viins '^H'  backward-delete-char
+
+# Add emacs-like keybind to viins mode
+bindkey -M vicmd '^A'  beginning-of-line
+bindkey -M vicmd '^E'  end-of-line
+bindkey -M vicmd '^K'  kill-line
+bindkey -M vicmd '^W'  backward-kill-word
+bindkey -M vicmd '^U'  backward-kill-line
 
 # search history
 bindkey '^P' history-substring-search-up
