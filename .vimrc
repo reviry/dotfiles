@@ -487,6 +487,13 @@ inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 inoremap <C-b> <Left>
 
+" Move like emacs in command line mode
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-d> <Del>
+
 " Swap jk for gjgk
 nnoremap j gj
 xnoremap j gj
