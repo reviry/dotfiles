@@ -38,10 +38,6 @@ repo = 'bronson/vim-trailing-whitespace'
 on_event = 'BufRead'
 
 [[plugins]]
-repo = 'Townk/vim-autoclose'
-on_event = 'InsertEnter'
-
-[[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 on_source = ['vim-quickrun']
