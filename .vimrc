@@ -310,18 +310,18 @@ endfunction
 "   return hl
 " endfunction
 
-" Visualize zenkaku-space
-function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+" Visualize multibyte space
+function! MultibyteSpace()
+  highlight MultibyteSpace cterm=underline ctermfg=lightblue guibg=darkgray
 endfunction
 
 if has('syntax')
-  augroup ZenkakuSpace
+  augroup MultibyteSpace
     autocmd!
-    autocmd! ColorScheme * call ZenkakuSpace()
-    autocmd! VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+    autocmd! ColorScheme * call MultibyteSpace()
+    autocmd! VimEnter,WinEnter,BufRead * let w:m1=matchadd('MultibyteSpace', '　')
   augroup END
-  call ZenkakuSpace()
+  call MultibyteSpace()
 endif
 
 
