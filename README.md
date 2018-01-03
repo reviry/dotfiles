@@ -1,6 +1,6 @@
 # dotfiles
 
-![screenshot](https://raw.githubusercontent.com/wiki/yuuuuuki/dotfiles/images/demo.png)
+![screenshot](https://raw.githubusercontent.com/wiki/reviry/dotfiles/images/screenshot.png)
 
 ## Features
 
