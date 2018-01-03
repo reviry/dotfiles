@@ -109,13 +109,23 @@ setopt prompt_subst
 zstyle ':vcs_info:*' formats ' (%F{green}%b%f)'
 zstyle ':vcs_info:*' actionformats ' (%F{red}%b(%a)%f)'
 precmd() { vcs_info }
-PROMPT_2=$'[%{${fg[cyan]}%}%n@%m:%~%{${reset_color}%}${vcs_info_msg_0_}]\n$ '
+
+venv() {
+  if [[ -n $VIRTUAL_ENV ]]; then
+    VENV="(${VIRTUAL_ENV:t}) "
+  else
+    VENV=""
+  fi
+}
+
+PROMPT_2=$'[%{${fg[cyan]}%}%n@%m:%~%{${reset_color}%}${vcs_info_msg_0_}]\n$VENV$ '
 
 terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]$terminfo[cud1]
 left_down_prompt_preexec() {
     print -rn -- $terminfo[el]
 }
 add-zsh-hook preexec left_down_prompt_preexec
+add-zsh-hook precmd venv
 
 function zle-line-init zle-keymap-select
 {
