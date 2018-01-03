@@ -4,11 +4,11 @@
 
 ## Features
 
-- **OS X** El Capitan 10.11.5
+- **macOS Sierra** 10.12.5
 - **Terminal.app**
-- **Tmux** 2.2
-- **Zsh** 5.2
-- **Vim** 7.4
+- **Tmux** 2.3
+- **Zsh** 5.3.1
+- **Vim** 8.0
 
 ## Installation
 
