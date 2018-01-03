@@ -1,50 +1,38 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
-rtp = ''
 
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'kchmck/vim-coffee-script'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'mxw/vim-jsx'
-on_ft = 'javascript'
-hook_add = '''
-  let g:jsx_ext_required = 0
-'''
-
-[[plugins]]
-repo = 'cakebaker/scss-syntax.vim'
-
-[[plugins]]
-repo = 'slim-template/vim-slim'
-
-[[plugins]]
-repo = 'mattn/emmet-vim'
-hook_add = '''
-  let g:user_emmet_leader_key='<C-T>'
-'''
-
-#[[plugins]]
-#repo = 'nathanaelkane/vim-indent-guides'
-#hook_add = '''
-#  let g:indent_guides_enable_on_vim_startup=1
-#  let g:indent_guides_guide_size=1
-#  let g:indent_guides_auto_colors=0
-#  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#2D3632 ctermbg=black
-#  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#2D3632 ctermbg=black
-#'''
+repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
+
+[[plugins]]
+repo = 'vim-scripts/AnsiEsc.vim'
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
+
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = 0
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+
+[[plugins]]
+repo = 'rking/ag.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'

@@ -1,29 +1,4 @@
 [[plugins]]
-repo = 'Shougo/neomru.vim'
-on_if = 1
-on_source = ['unite.vim']
-
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-if = "has('lua')"
-on_event = 'InsertEnter'
-hook_source = '''
-  let g:neocomplete#enable_at_startup = 1
-'''
-
-[[plugins]]
-repo = 'Shougo/unite.vim'
-depends = 'neomru.vim'
-hook_add = '''
-  noremap <C-P> :Unite file_mru<CR>
-'''
-
-[[plugins]]
-repo = 'Shougo/vimfiler.vim'
-depends = 'unite.vim'
-on_if = "isdirectory(bufname('%'))"
-
-[[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
   noremap <silent><C-e> :NERDTree<Cr>
@@ -31,40 +6,45 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
+repo = 'Shougo/neocomplete.vim'
+on_if = "has('lua')"
+on_event = 'InsertEnter'
+hook_source = '''
+  let g:neocomplete#enable_at_startup = 1
+'''
 
 [[plugins]]
-repo = 'vim-scripts/AnsiEsc.vim'
-
-[[plugins]]
-repo = 'scrooloose/syntastic'
-
-[[plugins]]
-repo = 'terryma/vim-multiple-cursors'
-
-[[plugins]]
-repo = 'scrooloose/syntastic'
-
-[[plugins]]
-repo = 'tpope/vim-rails'
-
-[[plugins]]
-repo = 'tpope/vim-endwise'
+repo = 'fatih/vim-go'
+on_ft = 'go'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+on_event = 'BufRead'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
+repo = 'tpope/vim-rails'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_ft = 'ruby'
 
 [[plugins]]
 repo = 'tpope/vim-unimpaired'
-
-[[plugins]]
-repo = 'Townk/vim-autoclose'
+on_event = 'BufRead'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
+on_event = 'BufRead'
+
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+on_source = ['vim-quickrun']
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -84,13 +64,47 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'christoomey/vim-tmux-navigator'
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  let g:indent_guides_enable_on_vim_startup=1
+  let g:indent_guides_guide_size=2
+  let g:indent_guides_auto_colors=0
+  autocmd MyAutoCmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#2D3632 ctermbg=black
+'''
 
 [[plugins]]
-repo = 'junegunn/fzf'
+repo = 'pangloss/vim-javascript'
+on_ft = 'javascript'
 
 [[plugins]]
-repo = 'junegunn/fzf.vim'
+repo = 'kchmck/vim-coffee-script'
+on_ft = 'javascript'
 
 [[plugins]]
-repo = 'rking/ag.vim'
+repo = 'mxw/vim-jsx'
+on_ft = 'javascript'
+hook_add = '''
+  let g:jsx_ext_required = 0
+'''
+
+[[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = 'slim'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+hook_add = '''
+  let g:user_emmet_leader_key='<C-T>'
+'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+  let g:EasyMotion_startofline = 0
+  let g:EasyMotion_smartcase = 1
+  let g:EasyMotion_use_smartsign_us = 1
+'''
