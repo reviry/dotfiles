@@ -271,45 +271,6 @@ function! LightLineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
-" Comment out because lightline.vim
-" " Show line and column number
-" set ruler
-" set rulerformat=%l:%v/%L
-
-" " Active statusline color
-" highlight StatusLine ctermfg=21 ctermbg=231
-"
-" " Emphasize statusline in the insert mode
-" let g:hi_insert = 'highlight StatusLine ctermfg=226 ctermbg=21'
-"
-" if has('syntax')
-"   augroup InsertHook
-"     autocmd!
-"     autocmd InsertEnter * call s:StatusLine('Enter')
-"     autocmd InsertLeave * call s:StatusLine('Leave')
-"   augroup END
-" endif
-"
-" let s:slhlcmd = ''
-" function! s:StatusLine(mode)
-"   if a:mode == 'Enter'
-"     silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-"     silent exec g:hi_insert
-"   else
-"     highlight clear StatusLine
-"     silent exec s:slhlcmd
-"   endif
-" endfunction
-"
-" function! s:GetHighlight(hi)
-"   redir => hl
-"   exec 'highlight '.a:hi
-"   redir END
-"   let hl = substitute(hl, '[\r\n]', '', 'g')
-"   let hl = substitute(hl, 'xxx', '', '')
-"   return hl
-" endfunction
-
 " Visualize multibyte space
 function! MultibyteSpace()
   highlight MultibyteSpace cterm=underline ctermfg=lightblue guibg=darkgray
