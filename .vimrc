@@ -451,11 +451,11 @@ function! s:all_files()
         \  map(filter(range(1, bufnr('$')), 'buflisted(v:val)'), 'bufname(v:val)'))
 endfunction
 
-" nnoremap <silent> <Leader>e :call fzf#run({
-"       \    'source': reverse(<sid>all_files()),
-"       \    'sink': 'e',
-"       \    'down': '40%'
-"       \  })<CR>
+nnoremap <silent> <Leader>s :call fzf#run({
+      \    'source': reverse(<sid>all_files()),
+      \    'sink': 'e',
+      \    'down': '40%'
+      \  })<CR>
 
 command! -nargs=+ -complete=file AgRaw call fzf#vim#ag_raw(<q-args>)
 
