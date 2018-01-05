@@ -67,6 +67,7 @@ hook_add = '''
   let g:indent_guides_auto_colors=0
   autocmd MyAutoCmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#2D3632 ctermbg=black
 '''
+on_event = 'BufRead'
 
 [[plugins]]
 repo = 'pangloss/vim-javascript'
@@ -104,6 +105,7 @@ hook_add = '''
   let g:EasyMotion_smartcase = 1
   let g:EasyMotion_use_smartsign_us = 1
 '''
+on_event = 'BufRead'
 
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
