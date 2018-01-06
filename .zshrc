@@ -227,6 +227,16 @@ fpro() {
 }
 zle -N fpro
 
+# search code playground
+fp() {
+  local dir
+  dir=$(find ~/code -type d -maxdepth 2 > /dev/null | fzf-tmux --reverse) &&
+    builtin cd $dir
+  precmd
+  zle reset-prompt
+}
+zle -N fp
+
 
 ##########################################
 # Key bindings
