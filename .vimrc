@@ -63,7 +63,9 @@ if dein#check_install()
 endif
 
 " Required:
-filetype plugin indent on
+silent! filetype plugin indent on
+syntax enable
+filetype detect
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -190,9 +192,6 @@ inoremap <silent> <Enter> <C-R>=IndentBraces()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""
 " Appearance
 """"""""""""""""""""""""""""""""""""""""""""""
-"Enable Syntax hilight
-syntax enable
-
 " Show row number
 set number
 
