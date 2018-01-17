@@ -293,17 +293,17 @@ function tmux_automatically_attach_session()
     ! is_exists 'tmux' && return 1
 
     if is_tmux_runnning; then
-      echo "${fg[cyan]} RRRRRRRRRRRR     EEEEEEEEEEEEEEEE VVVVV             VVVVV IIIIIIII RRRRRRRRRRRR     YYYY         YYYY  ${reset_color}"
-      echo "${fg[cyan]} R:::::::::::R    E::::::::::::::E  V:::V           V:::V  I::::::I R:::::::::::R     Y::Y       Y::Y   ${reset_color}"
-      echo "${fg[cyan]} RR:::RRRRR::::R  EE:::EEEEEEEE::E   V:::V         V:::V   II::::II RR:::RRRRR::::R    Y::Y     Y::Y    ${reset_color}"
-      echo "${fg[cyan]}   R::R     R:::R   E::E      EEEE    V:::V       V:::V      I::I     R::R     R:::R    Y::Y   Y::Y     ${reset_color}"
-      echo "${fg[cyan]}   R::RRRRRR:::R    E:::EEEEEEEE       V:::V     V:::V       I::I     R::RRRRRR:::R      Y::Y Y::Y      ${reset_color}"
-      echo "${fg[cyan]}   R:::::::::RR     E::::::::::E        V:::V   V:::V        I::I     R:::::::::RR        Y::Y::Y       ${reset_color}"
-      echo "${fg[cyan]}   R::RRRRRR:::R    E:::EEEEEEEE         V:::V V:::V         I::I     R::RRRRRR:::R        Y:::Y        ${reset_color}"
-      echo "${fg[cyan]}   R::R     R:::R   E::E      EEEE        V:::V:::V          I::I     R::R     R:::R       Y:::Y        ${reset_color}"
-      echo "${fg[cyan]}   R::R     R:::R EE:::EEEEEEE:::E         V:::::V         II::::II   R::R     R:::R       Y:::Y        ${reset_color}"
-      echo "${fg[cyan]} RR:::R     R:::R E::::::::::::::E          V:::V          I::::::I RR:::R     R:::R       Y:::Y        ${reset_color}"
-      echo "${fg[cyan]} RRRRRR     RRRRR EEEEEEEEEEEEEEEE           VVV           IIIIIIII RRRRRR     RRRRR       YYYYY        ${reset_color}"
+      echo "${fg[cyan]} RRRRRRRRRRRR     EEEEEEEEEEEEEEEE VVVVV             VVVVV IIIIIIII RRRRRRRRRRRR    YYYY         YYYY  ${reset_color}"
+      echo "${fg[cyan]} R:::::::::::R    E::::::::::::::E  V:::V           V:::V  I::::::I R:::::::::::R    Y::Y       Y::Y   ${reset_color}"
+      echo "${fg[cyan]} RR:::RRRRR::::R  EE:::EEEEEEEE::E   V:::V         V:::V   II::::II RR:::RRRRR::::R   Y::Y     Y::Y    ${reset_color}"
+      echo "${fg[cyan]}   R::R     R:::R   E::E      EEEE    V:::V       V:::V      I::I     R::R     R:::R   Y::Y   Y::Y     ${reset_color}"
+      echo "${fg[cyan]}   R::RRRRRR:::R    E:::EEEEEEEE       V:::V     V:::V       I::I     R::RRRRRR:::R     Y::Y Y::Y      ${reset_color}"
+      echo "${fg[cyan]}   R:::::::::RR     E::::::::::E        V:::V   V:::V        I::I     R:::::::::RR       Y::Y::Y       ${reset_color}"
+      echo "${fg[cyan]}   R::RRRRRR:::R    E:::EEEEEEEE         V:::V V:::V         I::I     R::RRRRRR:::R       Y:::Y        ${reset_color}"
+      echo "${fg[cyan]}   R::R     R:::R   E::E      EEEE        V:::V:::V          I::I     R::R     R:::R      Y:::Y        ${reset_color}"
+      echo "${fg[cyan]}   R::R     R:::R EE:::EEEEEEE:::E         V:::::V         II::::II   R::R     R:::R      Y:::Y        ${reset_color}"
+      echo "${fg[cyan]} RR:::R     R:::R E::::::::::::::E          V:::V          I::::::I RR:::R     R:::R      Y:::Y        ${reset_color}"
+      echo "${fg[cyan]} RRRRRR     RRRRR EEEEEEEEEEEEEEEE           VVV           IIIIIIII RRRRRR     RRRRR      YYYYY        ${reset_color}"
     elif is_screen_running; then
       echo "This is on screen."
     fi
