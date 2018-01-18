@@ -202,9 +202,10 @@ fadd() {
 # Change tmux session
 fs() {
   local session
-  session=$(tmux ls -F "#{session_name}" | \
-    fzf --query="$1" --select-1 --exit-0) &&
-  tmux switch-client -t "$session"
+  session=$(tmux ls -F "#{session_name}" > /dev/null | fzf-tmux --reverse +m) &&
+    tmux switch-client -t $session
+  precmd
+  zle reset-prompt
 }
 
 # ghq + fzf
