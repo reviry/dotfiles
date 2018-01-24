@@ -7,6 +7,7 @@ ln -sf $PWD/.ideavimrc ~/.ideavimrc
 ln -sf $PWD/.xvimrc ~/.xvimrc
 ln -sf $PWD/.tmux.conf ~/.tmux.conf
 ln -sf $PWD/.gitconfig ~/.gitconfig
+ln -sf $PWD/.gitignore_global ~/.gitignore_global
 ln -sf $PWD/vim/dein.toml ~/.vim/rc/dein.toml
 ln -sf $PWD/vim/deinlazy.toml ~/.vim/rc/deinlazy.toml
 
