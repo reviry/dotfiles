@@ -95,6 +95,7 @@ set shiftwidth=2
 augroup fileTypeIndent
     autocmd!
     autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 shiftwidth=4
     autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 augroup END
 
