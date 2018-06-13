@@ -2,7 +2,8 @@
 repo = 'scrooloose/nerdtree'
 hook_add = '''
   noremap <silent><C-e> :NERDTree<Cr>
-  let NERDTreeIgnore = ['\.pyc$','\~$']
+  let g:NERDTreeIgnore = ['\.pyc$', '\.DS_Store$', '\.git$', '\~$']
+  let g:NERDTreeShowHidden=1
 '''
 
 [[plugins]]
