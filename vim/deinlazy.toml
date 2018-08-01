@@ -105,3 +105,14 @@ on_ft = 'python'
 [[plugins]]
 repo = 'tomlion/vim-solidity'
 on_ft = 'solidity'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+hook_add = '''
+  let g:terraform_fmt_on_save = 1
+'''
+on_ft = 'tf'
+
+[[plugins]]
+repo = 'juliosueiras/vim-terraform-completion'
+on_ft = 'tf'
