@@ -378,3 +378,10 @@ if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/go
 if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/yuki/.nodebrew/node/v7.7.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/yuki/.nodebrew/node/v7.7.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/yuki/.nodebrew/node/v7.7.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/yuki/.nodebrew/node/v7.7.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
