@@ -40,7 +40,7 @@
   c  = commit -m
   ca = commit --amend --no-edit
   co = checkout
-  d  = diff --color-words
+  d  = diff
   s  = status --short --branch
   l  = log --oneline --graph --decorate
   b  = branch
