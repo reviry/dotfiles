@@ -41,6 +41,7 @@
   ca = commit --amend --no-edit
   co = checkout
   d  = diff
+  dw  = diff --color-words
   s  = status --short --branch
   l  = log --oneline --graph --decorate
   b  = branch
