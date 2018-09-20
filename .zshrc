@@ -149,6 +149,7 @@ alias ls="ls -GF"
 alias rs="bundle exec rails s"
 alias rc="bundle exec rails c"
 alias ctags="`brew --prefix`/bin/ctags"
+alias diff="colordiff -u"
 
 
 ##########################################
