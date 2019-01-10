@@ -14,3 +14,5 @@ ln -sf $PWD/.vimrc ~/.config/nvim/init.vim
 
 sudo ln -sf $PWD/bin/wifi /usr/local/bin/wifi && sudo chmod +x /usr/local/bin/wifi
 sudo ln -sf $PWD/bin/battery /usr/local/bin/battery && sudo chmod +x /usr/local/bin/battery
+
+ln -sf $PWD/source-highlight/* ~/.source-highlight/ && chmod +x ~/.source-highlight/src-hilite-lesspipe.sh

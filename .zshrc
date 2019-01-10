@@ -34,6 +34,9 @@ export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
 export PATH=$PATH:$HOME/.rbenv/bin
 
+# source-highlight
+export LESSOPEN='| $HOME/.source-highlight/src-hilite-lesspipe.sh %s'
+export LESS='-R'
 
 # golang
 export GOPATH=$HOME/go
