@@ -46,6 +46,14 @@ if dein#load_state(s:path)
   call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})
   call dein#load_toml('~/.vim/rc/deinlazy.toml', {'lazy' : 1})
 
+  call dein#add('Shougo/deoplete.nvim')
+  let g:deoplete#enable_at_startup = 1
+
+  call dein#add('zchee/deoplete-go', {'build': 'make'})
+  let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+  let g:go_gocode_autobuild = 1
+  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
   call dein#end()
   call dein#save_state()
 endif
@@ -76,7 +84,8 @@ set backspace=indent,eol,start
 set noswapfile
 
 " Use clipboard
-set clipboard+=unnamed,autoselect
+" set clipboard+=unnamed,autoselect
+set clipboard+=unnamedplus
 
 "Minimal number of screen lines to keep above and below the cursor
 set scrolloff=5
@@ -104,7 +113,7 @@ set showmatch
 
 " Fast terminal connection
 set ttyfast
-set ttyscroll=3
+" set ttyscroll=3
 
 " Add '-' to word
 set iskeyword+=-
