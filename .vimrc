@@ -46,14 +46,6 @@ if dein#load_state(s:path)
   call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})
   call dein#load_toml('~/.vim/rc/deinlazy.toml', {'lazy' : 1})
 
-  call dein#add('Shougo/deoplete.nvim')
-  let g:deoplete#enable_at_startup = 1
-
-  call dein#add('zchee/deoplete-go', {'build': 'make'})
-  let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-  let g:go_gocode_autobuild = 1
-  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-
   call dein#end()
   call dein#save_state()
 endif

@@ -16,6 +16,22 @@ hook_add = '''
 # '''
 
 [[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
+hook_add = '''
+  let g:deoplete#enable_at_startup = 1
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+'''
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+on_ft = ['ruby']
+
+[[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
 hook_source = '''
@@ -33,6 +49,10 @@ on_ft = 'ruby'
 [[plugins]]
 repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
+
+[[plugins]]
+repo = 'Shougo/deoplete-rct'
+on_ft = ['ruby']
 
 [[plugins]]
 repo = 'tpope/vim-unimpaired'
