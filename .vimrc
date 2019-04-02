@@ -76,8 +76,8 @@ set backspace=indent,eol,start
 set noswapfile
 
 " Use clipboard
-" set clipboard+=unnamed,autoselect
-set clipboard+=unnamedplus
+set clipboard+=unnamed,autoselect
+" set clipboard+=unnamedplus
 
 "Minimal number of screen lines to keep above and below the cursor
 set scrolloff=5
