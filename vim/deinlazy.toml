@@ -15,13 +15,13 @@ hook_add = '''
 #   let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
 # '''
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_i = 1
-hook_add = '''
-  let g:deoplete#enable_at_startup = 1
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-'''
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# on_i = 1
+# hook_add = '''
+#   let g:deoplete#enable_at_startup = 1
+#   inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+# '''
 
 [[plugins]]
 repo = 'roxma/nvim-yarp'
