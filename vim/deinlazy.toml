@@ -151,3 +151,7 @@ on_ft = 'tf'
 [[plugins]]
 repo = 'juliosueiras/vim-terraform-completion'
 on_ft = 'tf'
+
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = 'pug'

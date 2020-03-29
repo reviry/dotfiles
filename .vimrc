@@ -136,6 +136,9 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " ddl, dml as sql
 autocmd BufNewFile,BufRead *.{ddl,dml} set filetype=sql
 
+" pug
+autocmd BufNewFile,BufRead *.{pug*} set filetype=pug
+
 " Delete parenthesis and quotations when left one was deleted
 function! DeleteParenthesesAdjoin()
   let pos = col(".") - 1
