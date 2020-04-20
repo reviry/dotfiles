@@ -139,6 +139,9 @@ autocmd BufNewFile,BufRead *.{ddl,dml} set filetype=sql
 " pug
 autocmd BufNewFile,BufRead *.{pug*} set filetype=pug
 
+" dockerfile
+autocmd BufNewFile,BufRead Dockerfile.{*} set filetype=dockerfile
+
 " Delete parenthesis and quotations when left one was deleted
 function! DeleteParenthesesAdjoin()
   let pos = col(".") - 1

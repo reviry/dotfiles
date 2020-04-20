@@ -49,6 +49,8 @@ export PATH=$PYENV_ROOT/shims:$PATH
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+export PATH=$PATH:$HOME/.local/bin
+
 # Added by the Heroku Toolbelt
 export PATH=$PATH:/usr/local/heroku/bin
 
