@@ -45,6 +45,7 @@
   s  = status --short --branch
   l  = log --oneline --graph --decorate
   b  = branch
+  f  = fetch -p
 
 [ghq]
   root = ~/go/src
