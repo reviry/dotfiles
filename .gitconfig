@@ -34,18 +34,20 @@
   tool = vimdiff
 
 [alias]
-  a  = add
-  au = add -u
-  aa = add -A
-  c  = commit -m
-  ca = commit --amend --no-edit
-  co = checkout
-  d  = diff
+  a   = add
+  au  = add -u
+  aa  = add -A
+  b   = branch
+  c   = commit -m
+  ca  = commit --amend --no-edit
+  co  = checkout
+  d   = diff
   dw  = diff --color-words
-  s  = status --short --branch
-  l  = log --oneline --graph --decorate
-  b  = branch
-  f  = fetch -p
+  f   = fetch -p
+  l   = log --oneline --graph --decorate
+  m   = merge
+  mm  = merge origin/master
+  s   = status --short --branch
 
 [ghq]
   root = ~/go/src
