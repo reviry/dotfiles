@@ -15,57 +15,29 @@ autoload -Uz add-zsh-hook
 autoload -Uz terminfo
 
 # language
-export LANG=ja_JP.UTF-8
+export LANG=en_US.UTF-8
 
-# History
+# history
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 
-# ls command colors
-export LSCOLORS=exfxcxdxbxegedabagacad
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export PATH=$HOME/.nodebrew/current/bin
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
-
-export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
-
-export PATH=$PATH:$HOME/.rbenv/bin
+# git
+export PATH=$PATH:/opt/homebrew/opt/git/share/git-core/contrib/diff-highlight
 
 # source-highlight
-export LESSOPEN='| $HOME/.source-highlight/src-hilite-lesspipe.sh %s'
+export LESSOPEN='| /opt/homebrew/opt/source-highlight/bin/src-hilite-lesspipe.sh %s'
 export LESS='-R'
+
+# anyenv
+eval "$(anyenv init -)"
 
 # golang
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-
-# pyenv
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-export PATH=$PYENV_ROOT/shims:$PATH
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-export PATH=$PATH:$HOME/.local/bin
-
-# Added by the Heroku Toolbelt
-export PATH=$PATH:/usr/local/heroku/bin
-
-export R_HOME=/usr/bin/R
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
-
-export PATH=$PATH:~/Qt5.5.1/5.5/clang_64/bin
-
-# rbenv
-eval "$(rbenv init -)"
-
-# ignore case
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-zstyle ':completion:*' list-colors "${LS_COLORS}"
 
 # cd
 setopt auto_cd
@@ -81,20 +53,19 @@ setopt ignore_eof
 # no beep
 setopt no_beep
 
-# share History
+# share history
 setopt share_history
 
-# Delete an old recorded event if a new event is a duplicate.
+# delete an old recorded event if a new event is a duplicate.
 setopt hist_ignore_all_dups
 setopt hist_save_nodups
 
-# Confirm when executing 'rm *'
+# confirm when executing 'rm *'
 setopt rm_star_wait
 
-# Setup fzf
+# fzf
 source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh
 source ~/.zplug/repos/junegunn/fzf/shell/key-bindings.zsh
-# Setting ag as the default source for fzf
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 _fzf_compgen_path() {
@@ -105,46 +76,7 @@ _fzf_compgen_path() {
 ##########################################
 # Appearance
 ##########################################
-# prompt
-setopt prompt_subst
-zstyle ':vcs_info:*' formats ' (%F{green}%b%f)'
-zstyle ':vcs_info:*' actionformats ' (%F{red}%b(%a)%f)'
-precmd() { vcs_info }
-
-venv() {
-  if [[ -n $VIRTUAL_ENV ]]; then
-    VENV="(${VIRTUAL_ENV:t}) "
-  else
-    VENV=""
-  fi
-}
-
-PROMPT_2=$'[%{${fg[cyan]}%}%n@%m:%~%{${reset_color}%}${vcs_info_msg_0_}]\n$VENV$ '
-
-terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]$terminfo[cud1]
-left_down_prompt_preexec() {
-    print -rn -- $terminfo[el]
-}
-add-zsh-hook preexec left_down_prompt_preexec
-add-zsh-hook precmd venv
-
-function zle-line-init zle-keymap-select
-{
-  case $KEYMAP in
-    main|viins)
-      VIMODE="$fg[yellow]-- INSERT --$reset_color"
-      ;;
-    vicmd)
-      VIMODE="$fg[cyan]-- NORMAL --$reset_color"
-      ;;
-  esac
-
-  PROMPT="%{$terminfo_down_sc$VIMODE$terminfo[rc]%}$PROMPT_2"
-  zle reset-prompt
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
+eval "$(starship init zsh)"
 
 
 ##########################################
@@ -202,34 +134,23 @@ fadd() {
   done
 }
 
-# Change tmux session
-fs() {
+# tmux + fzf
+fts() {
   local session
   session=$(tmux ls -F "#{session_name}" > /dev/null | fzf-tmux --reverse +m) &&
     tmux switch-client -t $session
-  precmd
   zle reset-prompt
 }
+zle -N fts
 
 # ghq + fzf
 frepo() {
   local dir
   dir=$(ghq list > /dev/null | fzf-tmux --reverse +m) &&
     builtin cd $(ghq root)/$dir
-  precmd
   zle reset-prompt
 }
 zle -N frepo
-
-# search code playground
-fp() {
-  local dir
-  dir=$(find ~/code -type d -maxdepth 2 > /dev/null | fzf-tmux --reverse) &&
-    builtin cd $dir
-  precmd
-  zle reset-prompt
-}
-zle -N fp
 
 
 ##########################################
@@ -266,15 +187,14 @@ bindkey '^N' history-substring-search-down
 # search local repository
 bindkey '^G' frepo
 
-# search code playground
-bindkey '^J' fp
+# search tmux session
+bindkey '^J' fts
 
 ##########################################
 # Others
 ##########################################
 # tmux session attach
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
-function is_osx() { [[ $OSTYPE == darwin* ]]; }
 function is_screen_running() { [ ! -z "$STY" ]; }
 function is_tmux_runnning() { [ ! -z "$TMUX" ]; }
 function is_screen_or_tmux_running() { is_screen_running || is_tmux_runnning; }
@@ -322,28 +242,12 @@ function tmux_automatically_attach_session()
         fi
       fi
 
-      if is_osx && is_exists 'reattach-to-user-namespace'; then
-        # on OS X force tmux's default command
-        # to spawn a shell in the user's namespace
-        tmux_config=$(cat $HOME/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
-        tmux -f <(echo "$tmux_config") new-session && echo "$(tmux -V) created new session supported OS X"
-      else
-        tmux new-session && echo "tmux created new session"
-      fi
+      tmux new-session && echo "tmux created new session"
     fi
   fi
 }
 tmux_automatically_attach_session
 
-# Setup ssh-agent
-if [ -f ~/.ssh-agent ]; then
-  . ~/.ssh-agent
-fi
-if [ -z "$SSH_AGENT_PID" ] || ! kill -0 $SSH_AGENT_PID; then
-  ssh-agent > ~/.ssh-agent
-  . ~/.ssh-agent
-fi
-ssh-add -l >& /dev/null || ssh-add
 
 #################################
 # zplug
@@ -378,17 +282,10 @@ if [[ -f ~/.zplug/init.zsh ]]; then
   zplug load --verbose
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/yuki/.nodebrew/node/v7.7.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/yuki/.nodebrew/node/v7.7.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/yuki/.nodebrew/node/v7.7.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/yuki/.nodebrew/node/v7.7.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/yuki/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yuki/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/yuki/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yuki/google-cloud-sdk/completion.zsh.inc'; fi
