@@ -483,3 +483,6 @@ xnoremap [fzf-p]gr "sy:CocCommand fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=
 nnoremap <silent> [fzf-p]t :<C-u>CocCommand fzf-preview.BufferTags<CR>
 nnoremap <silent> [fzf-p]q :<C-u>CocCommand fzf-preview.QuickFix<CR>
 nnoremap <silent> [fzf-p]l :<C-u>CocCommand fzf-preview.LocationList<CR>
+
+" coc-explorer
+nnoremap <silent> <C-e> :<C-u>CocCommand explorer<CR>

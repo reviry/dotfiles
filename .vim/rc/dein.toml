@@ -39,3 +39,33 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+merged = 0
+rev = 'release'
+hook_add = '''
+  let g:coc_global_extensions = [
+    \ 'coc-css',
+    \ 'coc-diagnostic',
+    \ 'coc-docker',
+    \ 'coc-eslint',
+    \ 'coc-explorer',
+    \ 'coc-fzf-preview',
+    \ 'coc-git',
+    \ 'coc-go',
+    \ 'coc-graphql',
+    \ 'coc-html',
+    \ 'coc-html-css-support',
+    \ 'coc-json',
+    \ 'coc-lists',
+    \ 'coc-lightbulb',
+    \ 'coc-markdown-preview-enhanced',
+    \ 'coc-snippets',
+    \ 'coc-sql',
+    \ 'coc-swagger',
+    \ 'coc-toml',
+    \ 'coc-tsserver',
+    \ 'coc-yaml'
+  \ ]
+'''
