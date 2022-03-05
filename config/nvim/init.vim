@@ -486,3 +486,13 @@ nnoremap <silent> [fzf-p]l :<C-u>CocCommand fzf-preview.LocationList<CR>
 
 " coc-explorer
 nnoremap <silent> <C-e> :<C-u>CocCommand explorer<CR>
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  sync_install = false,
+  highlight = {
+    enable = true,
+  }
+}
+EOF

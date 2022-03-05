@@ -69,3 +69,7 @@ hook_add = '''
     \ 'coc-yaml'
   \ ]
 '''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_post_update = 'TSUpdate'

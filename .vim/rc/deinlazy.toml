@@ -60,44 +60,10 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'kchmck/vim-coffee-script'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'mxw/vim-jsx'
-on_ft = 'javascript'
-hook_add = '''
-  let g:jsx_ext_required = 0
-'''
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = 'typescript'
-
-[[plugins]]
-repo = 'posva/vim-vue'
-on_ft = 'vue'
-hook_add = '''
-  autocmd FileType vue syntax sync fromstart
-'''
-
-[[plugins]]
-repo = 'slim-template/vim-slim'
-on_ft = 'slim'
-
-[[plugins]]
 repo = 'mattn/emmet-vim'
 hook_add = '''
   let g:user_emmet_leader_key='<C-T>'
 '''
-
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
@@ -107,10 +73,6 @@ hook_add = '''
   let g:EasyMotion_use_smartsign_us = 1
 '''
 on_event = 'BufRead'
-
-[[plugins]]
-repo = 'hynek/vim-python-pep8-indent'
-on_ft = 'python'
 
 [[plugins]]
 repo = 'tomlion/vim-solidity'
@@ -126,7 +88,3 @@ on_ft = 'tf'
 [[plugins]]
 repo = 'juliosueiras/vim-terraform-completion'
 on_ft = 'tf'
-
-[[plugins]]
-repo = 'digitaltoad/vim-pug'
-on_ft = 'pug'
