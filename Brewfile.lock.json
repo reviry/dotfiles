@@ -8,7 +8,7 @@
         "revision": "6b7f585650c33023e9d316e2b3eb567e73bb0c63"
       },
       "homebrew/core": {
-        "revision": "e84edce370d65a122309b713c48c303b197321bc"
+        "revision": "e8b65b3b4f1da46b0a890681cf659a7c915352f1"
       },
       "sanemat/font": {
         "revision": "b9c208d3a58c305764e8b311b45b65855629804c"
@@ -674,6 +674,8 @@
             "HEAD"
           ]
         }
+      },
+      "font-fira-code": {
       }
     }
   },
@@ -682,7 +684,7 @@
       "monterey": {
         "HOMEBREW_VERSION": "3.4.0",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "e84edce370d65a122309b713c48c303b197321bc",
+        "Homebrew/homebrew-core": "e8b65b3b4f1da46b0a890681cf659a7c915352f1",
         "CLT": "13.2.0.0.1.1638488800",
         "Xcode": "13.2.1",
         "macOS": "12.2.1"
