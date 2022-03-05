@@ -10,3 +10,8 @@ install: ## Create symlink to home directory
 	@echo ''
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 	@ln -sfnv $(abspath config/*) ~/.config
+
+install-karabiner: ## Create symlink of Karabiner
+	@echo '==> Start to deploy Karabiner assets to home directory.'
+	@echo ''
+	@ln -sfnv $(abspath karabiner/assets) ~/.config/karabiner/assets
