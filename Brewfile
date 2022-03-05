@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "sanemat/font"
+tap "universal-ctags/universal-ctags"
 brew "anyenv"
 brew "colordiff"
 brew "fzf"
@@ -15,5 +16,6 @@ brew "source-highlight"
 brew "starship"
 brew "the_silver_searcher"
 brew "tmux"
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew 'yarn', args: ["ignore-dependencies"]
 brew "sanemat/font/ricty", args: ["with-powerline"]

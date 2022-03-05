@@ -12,6 +12,9 @@
       },
       "sanemat/font": {
         "revision": "b9c208d3a58c305764e8b311b45b65855629804c"
+      },
+      "universal-ctags/universal-ctags": {
+        "revision": "c84df0fc89f3a63ce5438eb59244ec2080352c0d"
       }
     },
     "brew": {
@@ -661,6 +664,15 @@
               "sha256": "34e3140b55f0fb5efb8db70e0709afe091632efaa84465e4c1c9ca3c8afa1bf2"
             }
           }
+        }
+      },
+      "universal-ctags/universal-ctags/universal-ctags": {
+        "version": "HEAD-37a4b36",
+        "bottle": false,
+        "options": {
+          "args": [
+            "HEAD"
+          ]
         }
       }
     }
