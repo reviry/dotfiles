@@ -60,9 +60,8 @@ filetype detect
 """"""""""""""""""""""""""""""""""""""""""""""
 " Encoding utf-8
 set encoding=utf-8
-
-" Use English
-language C
+set fileencoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,ucs-2le,ucs-2,cp932
 
 " Enable backspace
 set backspace=indent,eol,start
