@@ -72,10 +72,10 @@ _fzf_compgen_path() {
   ag --hidden --ignore .git -g "" "$1"
 }
 
+# zsh-users/zsh-autosuggestions
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6c6c6c"
 
-##########################################
-# Appearance
-##########################################
+# starship
 eval "$(starship init zsh)"
 
 
@@ -87,7 +87,7 @@ alias rs="bundle exec rails s"
 alias rc="bundle exec rails c"
 alias ctags="`brew --prefix`/bin/ctags"
 alias diff="colordiff -u"
-# alias vim="nvim"
+alias vim="nvim"
 
 
 ##########################################
@@ -266,7 +266,7 @@ if [[ -f ~/.zplug/init.zsh ]]; then
   zplug "zsh-users/zsh-syntax-highlighting", \
     defer:2
 
-  zplug "zsh-users/zsh-completions"
+  zplug "zsh-users/zsh-autosuggestions"
 
   zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
   zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
