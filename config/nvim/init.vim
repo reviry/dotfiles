@@ -71,8 +71,11 @@ set backspace=indent,eol,start
 set noswapfile
 
 " Use clipboard
-set clipboard+=unnamed,autoselect
-" set clipboard+=unnamedplus
+if has('nvim')
+  set clipboard=unnamed
+else
+  set clipboard=unnamed,autoselect
+endif
 
 "Minimal number of screen lines to keep above and below the cursor
 set scrolloff=5
