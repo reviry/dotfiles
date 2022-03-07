@@ -5,10 +5,10 @@
         "revision": "31568bb54af6faf32b7d2bbaf53d8e82c1e50e8d"
       },
       "homebrew/cask-fonts": {
-        "revision": "6b7f585650c33023e9d316e2b3eb567e73bb0c63"
+        "revision": "d29e17b14d1cbc8b8d5c478df87dbc13356a2390"
       },
       "homebrew/core": {
-        "revision": "c0b3c46579d6a3be2f8d385ab540c71986efd421"
+        "revision": "0ea11a916799b51db99a2a8caa1acd36f8c168a8"
       },
       "sanemat/font": {
         "revision": "b9c208d3a58c305764e8b311b45b65855629804c"
@@ -676,15 +676,25 @@
         }
       },
       "font-fira-code": {
+      },
+      "ngrok": {
+      }
+    },
+    "cask": {
+      "ngrok": {
+        "version": "2.3.40",
+        "options": {
+          "full_name": "ngrok"
+        }
       }
     }
   },
   "system": {
     "macos": {
       "monterey": {
-        "HOMEBREW_VERSION": "3.4.0",
+        "HOMEBREW_VERSION": "3.4.1",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "c0b3c46579d6a3be2f8d385ab540c71986efd421",
+        "Homebrew/homebrew-core": "0ea11a916799b51db99a2a8caa1acd36f8c168a8",
         "CLT": "13.2.0.0.1.1638488800",
         "Xcode": "13.2.1",
         "macOS": "12.2.1"
