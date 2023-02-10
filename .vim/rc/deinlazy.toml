@@ -30,6 +30,10 @@ repo = 'Shougo/deoplete-rct'
 on_ft = ['ruby']
 
 [[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = ['slim']
+
+[[plugins]]
 repo = 'tpope/vim-unimpaired'
 on_event = 'BufRead'
 
