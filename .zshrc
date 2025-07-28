@@ -43,6 +43,10 @@ eval "$(anyenv init -)"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# poetry
+export PATH=$PATH:$HOME/.local/bin
+fpath+=~/.zfunc
+
 # cd
 setopt auto_cd
 setopt auto_pushd
@@ -320,3 +324,5 @@ if [ -f '/Users/yuki/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yuki/googl
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yuki/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yuki/google-cloud-sdk/completion.zsh.inc'; fi
+
+source /Users/yuki/.docker/init-zsh.sh || true # Added by Docker Desktop
