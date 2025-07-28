@@ -1,0 +1,6 @@
+.tmux/plugins/
+.vim/sessions/
+.vim/undo/
+.zfunc/
+_poetry
+tmux-client-39085.log
