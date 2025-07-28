@@ -14,5 +14,6 @@
       "trace.server": "verbose",
       "filetypes": ["go"]
     }
-  }
+  },
+  "svelte.enable-ts-plugin": true
 }

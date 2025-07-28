@@ -38,7 +38,7 @@ repo = 'tpope/vim-unimpaired'
 on_event = 'BufRead'
 
 [[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
+repo = 'ntpeters/vim-better-whitespace'
 on_event = 'BufRead'
 
 [[plugins]]

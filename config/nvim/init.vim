@@ -194,7 +194,7 @@ set number
 
 " Colorscheme
 set background=dark
-colorscheme solarized
+colorscheme onenord
 
 " Emphasize current row
 set cursorline
@@ -207,7 +207,7 @@ set laststatus=2
 
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'onenord',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
@@ -489,7 +489,7 @@ nnoremap <silent> <C-e> :<C-u>CocCommand explorer<CR>
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+  ensure_installed = "all",
   sync_install = false,
   highlight = {
     enable = true,

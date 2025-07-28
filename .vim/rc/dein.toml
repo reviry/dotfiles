@@ -5,7 +5,7 @@ repo = 'Shougo/dein.vim'
 repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
-repo = 'altercation/vim-colors-solarized'
+repo = 'rmehri01/onenord.nvim'
 
 [[plugins]]
 repo = 'vim-scripts/AnsiEsc.vim'
@@ -63,6 +63,7 @@ hook_add = '''
     \ 'coc-markdown-preview-enhanced',
     \ 'coc-snippets',
     \ 'coc-sql',
+    \ 'coc-svelte',
     \ 'coc-swagger',
     \ 'coc-toml',
     \ 'coc-tsserver',
