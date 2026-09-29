@@ -326,3 +326,6 @@ if [ -f '/Users/yuki/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yuki/googl
 if [ -f '/Users/yuki/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yuki/google-cloud-sdk/completion.zsh.inc'; fi
 
 source /Users/yuki/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+# Added by Antigravity
+export PATH="/Users/yuki/.antigravity/antigravity/bin:$PATH"
