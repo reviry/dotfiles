@@ -1,1 +1,11 @@
+theme = TokyoNight Moon
+
+font-family = Ricty
+font-size = 14
+font-thicken = true
+font-thicken-strength = 50
+
+adjust-cell-width = 0
+adjust-cell-height = 8
+
 keybind = ctrl+m=ignore
